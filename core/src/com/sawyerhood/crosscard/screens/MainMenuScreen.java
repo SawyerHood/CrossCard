@@ -18,7 +18,7 @@ public class MainMenuScreen extends MenuScreen {
       @Override
       public void act(float delta) {
         super.act(delta);
-        if (timeSinceFlash >= 0.5) {
+        if (timeSinceFlash >= 2) {
           if (getColor().a >= 1.0)
             getColor().a = (float) 0.0;
           else
@@ -52,6 +52,14 @@ public class MainMenuScreen extends MenuScreen {
       public void changed(ChangeEvent event, Actor actor) {
         Gdx.app.exit();
 
+      }
+    });
+
+    singlePlayerButton.addListener(new ChangeListener() {
+
+      @Override
+      public void changed(ChangeEvent event, Actor actor) {
+        game.setScreen(new CardTestScreen(game));
       }
     });
 
