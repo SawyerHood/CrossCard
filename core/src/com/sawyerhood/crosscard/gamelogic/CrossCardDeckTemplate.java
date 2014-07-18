@@ -1,5 +1,11 @@
 package com.sawyerhood.crosscard.gamelogic;
 
+/**
+ * Used to generate a set of cards.
+ * 
+ * @author sawyer
+ * 
+ */
 public class CrossCardDeckTemplate {
   private CrossCard card;
   private int numberToInit;

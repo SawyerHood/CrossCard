@@ -1,10 +1,16 @@
 package com.sawyerhood.crosscard.gamelogic;
 
 
-import com.sawyerhood.crosscard.gamelogic.interfaces.TurnManager;
-
 import java.util.List;
 
+import com.sawyerhood.crosscard.gamelogic.interfaces.TurnManager;
+
+/**
+ * Keeps track of whose turn it is.
+ * 
+ * @author Sawyer Hood
+ * 
+ */
 public class CrossCardTurnManager implements TurnManager {
 
   private List<CrossCardPlayer> players;
@@ -15,6 +21,9 @@ public class CrossCardTurnManager implements TurnManager {
     this.currentIndex = 0;
   }
 
+  /**
+   * Moves to the next player's turn
+   */
   @Override
   public void nextTurn() {
     currentIndex++;
@@ -22,6 +31,9 @@ public class CrossCardTurnManager implements TurnManager {
       currentIndex = 0;
   }
 
+  /**
+   * Returns the curretn player.
+   */
   public CrossCardPlayer getCurrentPlayer() {
     return players.get(currentIndex);
   }
