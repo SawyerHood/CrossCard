@@ -9,7 +9,7 @@ import com.sawyerhood.crosscard.gamelogic.interfaces.TurnManager;
  * 
  */
 public class CrossCardGameManager {
-  // TODO implement this class.
+
   private TurnManager turnManager;
   private CrossCardDeck deck;
   private CrossCardBoard board;
@@ -37,7 +37,7 @@ public class CrossCardGameManager {
    * @return
    */
   public boolean playCard(int row, int col) {
-    return true;
+    return board.placeCard(row, col, turnManager.getCurrentPlayer().popCard());
   }
 
   /**
@@ -46,13 +46,14 @@ public class CrossCardGameManager {
    * @return
    */
   public boolean reserveCard() {
-    return true;
+    return turnManager.getCurrentPlayer().reserve();
   }
 
   /**
    * Moves on to the next turn.
    */
   public void nextTurn() {
+    turnManager.nextTurn();
 
   }
 
@@ -62,7 +63,12 @@ public class CrossCardGameManager {
    * @return
    */
   public CrossCard drawCard() {
+    CrossCard card = deck.draw();
+    boolean success = turnManager.getCurrentPlayer().giveCard(card);
+    if (success)
+      return card;
     return null;
+
   }
 
   /**
@@ -71,7 +77,7 @@ public class CrossCardGameManager {
    * @return
    */
   public CrossCardPlayer getCurrentPlayer() {
-    return null;
+    return turnManager.getCurrentPlayer();
   }
 
   /**
@@ -80,7 +86,7 @@ public class CrossCardGameManager {
    * @return
    */
   public CrossCardBoard getBoard() {
-    return null;
+    return board;
   }
 
 
