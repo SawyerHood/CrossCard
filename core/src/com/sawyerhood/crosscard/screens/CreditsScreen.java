@@ -1,10 +1,10 @@
 package com.sawyerhood.crosscard.screens;
 
-import com.badlogic.gdx.Game;
+import com.sawyerhood.crosscard.CrossCardGame;
 
 public class CreditsScreen extends MenuScreen {
 
-  public CreditsScreen(Game game) {
+  public CreditsScreen(CrossCardGame game) {
     super(game);
     // TODO Auto-generated constructor stub
   }

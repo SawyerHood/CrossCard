@@ -1,15 +1,15 @@
 package com.sawyerhood.crosscard.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.sawyerhood.crosscard.CrossCardGame;
 
 public class MainMenuScreen extends MenuScreen {
 
-  public MainMenuScreen(final Game game) {
+  public MainMenuScreen(final CrossCardGame game) {
     super(game);
 
     Label title = new Label("Card Cross!", uiSkin) {

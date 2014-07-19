@@ -1,14 +1,14 @@
 package com.sawyerhood.crosscard.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.sawyerhood.crosscard.CrossCardGame;
 
 public class OptionsScreen extends MenuScreen {
 
-  public OptionsScreen(final Game game) {
+  public OptionsScreen(final CrossCardGame game) {
     super(game);
     Label title = new Label("Options!", uiSkin);
     title.setScale((float) 2.0);
