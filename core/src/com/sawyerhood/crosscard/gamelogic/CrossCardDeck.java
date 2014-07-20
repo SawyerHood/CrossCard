@@ -46,9 +46,7 @@ public class CrossCardDeck {
    * Clones a deck.
    */
   public CrossCardDeck clone() {
-    // TODO implement this method.
-    return null;
-
+    return new CrossCardDeck(this.cards);
   }
 
 }
