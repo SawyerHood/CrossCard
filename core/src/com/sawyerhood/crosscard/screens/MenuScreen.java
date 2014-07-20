@@ -66,7 +66,7 @@ public abstract class MenuScreen extends AbstractScreen {
 
   @Override
   public void dispose() {
-    uiSkin.dispose();
+    // uiSkin.dispose();
 
   }
 

@@ -3,9 +3,9 @@ package com.sawyerhood.crosscard.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.sawyerhood.crosscard.CrossCardGame;
+import com.sawyerhood.crosscard.actors.CardActor;
 import com.sawyerhood.crosscard.gamelogic.CrossCard;
 import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
-import coms.sawyerhood.crosscard.actors.CardActor;
 
 public class CardTestScreen extends MenuScreen {
 

@@ -203,4 +203,8 @@ public class CrossCardBoard {
     grid[row][col] = card;
     return true;
   }
+
+  public CrossCard getCard(int row, int col) {
+    return grid[row][col];
+  }
 }
