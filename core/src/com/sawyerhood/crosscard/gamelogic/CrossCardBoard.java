@@ -22,6 +22,14 @@ public class CrossCardBoard {
   public CrossCardBoard() {
     initGrid(3, 3);
   }
+  
+  public CrossCardBoard(CrossCardBoard other) {
+    this.grid = other.getGrid();
+  }
+  
+  public getGrid() {
+    return this.grid;
+  }
 
   /**
    * Responsible for initializing the grid with the given number of rows and columns.
