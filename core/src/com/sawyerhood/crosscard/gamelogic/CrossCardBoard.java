@@ -22,12 +22,12 @@ public class CrossCardBoard {
   public CrossCardBoard() {
     initGrid(3, 3);
   }
-  
+
   public CrossCardBoard(CrossCardBoard other) {
     this.grid = other.getGrid();
   }
-  
-  public getGrid() {
+
+  public CrossCard[][] getGrid() {
     return this.grid;
   }
 
