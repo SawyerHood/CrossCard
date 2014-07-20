@@ -1,13 +1,13 @@
 package com.sawyerhood.crosscard.screens;
 
-import com.badlogic.gdx.Game;
+import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 
-public class GameplayScreen extends AbstractScreen {
+public class GameplayScreen extends MenuScreen {
 
-  public GameplayScreen(Game game) {
+  public GameplayScreen(CrossCardGame game) {
     super(game);
-    // TODO Auto-generated constructor stub
+    gameManager = new CrossCardGameManager();
   }
 
   private CrossCardGameManager gameManager;

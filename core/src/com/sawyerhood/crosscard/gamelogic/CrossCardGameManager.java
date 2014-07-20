@@ -14,6 +14,12 @@ public class CrossCardGameManager {
   private CrossCardDeck deck;
   private CrossCardBoard board;
 
+  public CrossCardGameManager() {
+
+    this(new CrossCardTurnManager(Helpers.generateStandardPlayers()), new CrossCardDeck(
+        Helpers.generateStandardDeck()), new CrossCardBoard());
+  }
+
   public CrossCardGameManager(TurnManager turnManager, CrossCardDeck deck, CrossCardBoard board) {
     this.turnManager = turnManager;
     this.deck = deck;

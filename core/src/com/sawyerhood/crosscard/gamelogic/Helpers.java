@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -89,6 +90,28 @@ public class Helpers {
         }
     }
     return cards;
+  }
+
+  public static Collection<CrossCard> generateStandardDeck() {
+    Collection<CrossCard> cards = new ArrayList<CrossCard>();
+    for (int i = 1; i < 6; i++) {
+      for (int j = 0; j < 2; j++) {
+        cards.add(new CrossCard(CardType.HORIZONTAL, i));
+        cards.add(new CrossCard(CardType.CROSS, i));
+        cards.add(new CrossCard(CardType.VERTICAL, i));
+      }
+    }
+    cards.add(new CrossCard(CardType.DOT, 1));
+    cards.add(new CrossCard(CardType.DOT, 1));
+    return cards;
+
+  }
+
+  public static List<CrossCardPlayer> generateStandardPlayers() {
+    List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
+    players.add(new CrossCardPlayer(CardType.VERTICAL, "Player 1"));
+    players.add(new CrossCardPlayer(CardType.HORIZONTAL, "Player 2"));
+    return players;
   }
 
 
