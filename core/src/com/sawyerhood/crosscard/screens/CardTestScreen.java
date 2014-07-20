@@ -3,6 +3,8 @@ package com.sawyerhood.crosscard.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.sawyerhood.crosscard.CrossCardGame;
+import com.sawyerhood.crosscard.gamelogic.CrossCard;
+import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
 import coms.sawyerhood.crosscard.actors.CardActor;
 
 public class CardTestScreen extends MenuScreen {
@@ -16,7 +18,7 @@ public class CardTestScreen extends MenuScreen {
     font = game.getAssetManger().get("default.fnt", BitmapFont.class);
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        table.add(new CardActor(cardImage, font)).pad(15);
+        table.add(new CardActor(cardImage, font, new CrossCard(CardType.VERTICAL, 2))).pad(15);
       }
       table.row();
     }

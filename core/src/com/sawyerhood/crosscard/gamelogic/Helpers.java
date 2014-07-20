@@ -27,8 +27,22 @@ public class Helpers {
    */
 
   public enum CardType {
-    HORIZONTAL, VERTICAL, CROSS, DOT
+    HORIZONTAL, VERTICAL, CROSS, DOT;
+
+    public String toString() {
+      if (this == HORIZONTAL)
+        return "_";
+      else if (this == VERTICAL)
+        return "|";
+      else if (this == CROSS)
+        return "+";
+      else
+        return "*";
+
+    }
   }
+
+
 
   /**
    * 
