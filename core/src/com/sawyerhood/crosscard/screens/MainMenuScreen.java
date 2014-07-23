@@ -59,7 +59,7 @@ public class MainMenuScreen extends MenuScreen {
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-        game.setScreen(new CardTestScreen(game));
+        game.setScreen(new GameplayScreen(game));
       }
     });
 

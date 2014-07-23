@@ -2,6 +2,8 @@ package com.sawyerhood.crosscard.screens;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.CardActor;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
@@ -10,21 +12,29 @@ public class GameplayScreen extends MenuScreen {
 
   private CrossCardGameManager gameManager;
   private CardActor[][] cardGrid;
+  private Label playerLabel;
+  private Table cardGameTable;
 
   public GameplayScreen(CrossCardGame game) {
     super(game);
     gameManager = new CrossCardGameManager();
     Texture cardImage = game.getAssetManger().get("card.png", Texture.class);
     BitmapFont font = game.getAssetManger().get("default.fnt", BitmapFont.class);
+    playerLabel = new Label(gameManager.getCurrentPlayer().toString(), uiSkin);
     cardGrid = new CardActor[3][3];
+    table.add(playerLabel).pad(15).center();
+    
+    table.row();
+    cardGameTable = new Table();
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         CardActor card = new CardActor(cardImage, font, null);
-        table.add(card).pad(15);
+        cardGameTable.add(card).pad(15);
         cardGrid[i][j] = card;
       }
-      table.row();
+      cardGameTable.row();
     }
+    table.add(cardGameTable);
   }
 
   @Override
@@ -34,6 +44,7 @@ public class GameplayScreen extends MenuScreen {
       // TODO Implement what to do if the game is over.
     }
     updateCards();
+    playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
 
   }
 
