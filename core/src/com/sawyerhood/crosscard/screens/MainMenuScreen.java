@@ -62,6 +62,16 @@ public class MainMenuScreen extends MenuScreen {
         game.setScreen(new GameplayScreen(game));
       }
     });
+    
+    multiPlayerButton.addListener(new ChangeListener() {
+
+        @Override
+        public void changed(ChangeEvent event, Actor actor) {
+          game.setScreen(new CardTestScreen(game));
+        }
+      });
+      
+    
 
 
 
