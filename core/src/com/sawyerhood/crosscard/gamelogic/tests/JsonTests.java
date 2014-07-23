@@ -10,7 +10,7 @@ import com.sawyerhood.crosscard.gamelogic.Helpers;
 
 public class JsonTests {
 
-  public static void testJsonLoad() {
+ /* public static void testJsonLoad() {
     try {
       String json = Helpers.readFile("cards.json");
       Collection<CrossCard> cards = Helpers.loadDeck(json);
@@ -43,6 +43,6 @@ public class JsonTests {
 
   public static void main(String args[]) {
     testGrid();
-  }
+  }*/
 
 }
