@@ -56,12 +56,19 @@ public class GameplayScreen extends MenuScreen {
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         CardActor card = new CardActor(cardImage, font, null);
-
+        card.row = i;
+        card.col = j;
         card.addCaptureListener(new ClickListener() {
 
           public void clicked(InputEvent event, float x, float y) {
 
-            System.out.println(event.getListenerActor());
+            CardActor thisCard = ((CardActor) event.getListenerActor());
+            if (gameManager.getBoard().placeCard(thisCard.row, thisCard.col,
+                gameManager.getCurrentPlayer().getCurrentCard())) {
+              gameManager.getCurrentPlayer().popCard();
+              gameManager.nextTurn();
+            }
+
 
           }
         });
@@ -84,6 +91,7 @@ public class GameplayScreen extends MenuScreen {
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+
 
   }
 
