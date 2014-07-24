@@ -60,6 +60,7 @@ public class CrossCardGameManager {
    */
   public void nextTurn() {
     turnManager.nextTurn();
+    getCurrentPlayer().giveCard(deck.draw());
 
   }
 

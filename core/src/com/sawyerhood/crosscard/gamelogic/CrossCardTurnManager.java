@@ -32,7 +32,7 @@ public class CrossCardTurnManager implements TurnManager {
   }
 
   /**
-   * Returns the curretn player.
+   * Returns the current player.
    */
   public CrossCardPlayer getCurrentPlayer() {
     return players.get(currentIndex);
