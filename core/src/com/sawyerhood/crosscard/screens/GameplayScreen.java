@@ -19,10 +19,21 @@ public class GameplayScreen extends MenuScreen {
   private Table playerCards;
   private CardActor currentCard;
   private CardActor reserveCard;
+  private Label[] vertScores;
+  private Label[] horiScores;
 
   public GameplayScreen(CrossCardGame game) {
 
     super(game);
+    vertScores = new Label[3];
+    horiScores = new Label[3];
+
+    for (int i = 0; i < 3; i++) {
+      vertScores[i] = new Label(null, uiSkin);
+      horiScores[i] = new Label(null, uiSkin);
+    }
+
+
     gameManager = new CrossCardGameManager();
     gameManager.nextTurn();
     Texture cardImage = game.getAssetManger().get("card.png", Texture.class);
@@ -38,6 +49,10 @@ public class GameplayScreen extends MenuScreen {
     playerCards.add(currentCard).pad(15);
     playerCards.row();
     playerCards.add(reserveCard).pad(15);
+    cardGameTable.add(vertScores[0]).pad(15);
+    cardGameTable.add(vertScores[1]).pad(15);
+    cardGameTable.add(vertScores[2]).pad(15);
+    cardGameTable.row();
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         CardActor card = new CardActor(cardImage, font, null);
@@ -54,6 +69,7 @@ public class GameplayScreen extends MenuScreen {
         cardGameTable.add(card).pad(15);
         cardGrid[i][j] = card;
       }
+      cardGameTable.add(horiScores[i]).pad(15);
       cardGameTable.row();
     }
     table.add(cardGameTable);
@@ -76,8 +92,11 @@ public class GameplayScreen extends MenuScreen {
       for (int j = 0; j < 3; j++) {
         cardGrid[i][j].setCard(gameManager.getBoard().getCard(i, j));
       }
+      horiScores[i].setText(Integer.toString(gameManager.getBoard().getRowValue(i)));
+      vertScores[i].setText(Integer.toString(gameManager.getBoard().getColValue(i)));
     }
     currentCard.setCard(gameManager.getCurrentPlayer().getCurrentCard());
     reserveCard.setCard(gameManager.getCurrentPlayer().getReserve());
+
   }
 }
