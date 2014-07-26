@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.SkinLoader;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -17,12 +18,14 @@ public class CrossCardGame extends Game {
   protected SpriteBatch batch;
   protected Texture img;
   private AssetManager assetManager = null;
+  private Music music;
 
   @Override
   public void create() {
     batch = new SpriteBatch();
     // setScreen(new MainMenuScreen(this));
     initManager();
+
 
 
   }
@@ -34,6 +37,11 @@ public class CrossCardGame extends Game {
     if (assetManager.update()) {
       if (getScreen() == null)
         setScreen(new MainMenuScreen(this));
+      if (music == null) {
+        music = assetManager.get("music.mp3");
+        music.play();
+        music.setLooping(true);
+      }
       super.render();
     }
 
@@ -59,6 +67,11 @@ public class CrossCardGame extends Game {
     assetManager.load("uiskin.json", Skin.class);
     assetManager.load("default.fnt", BitmapFont.class);
     assetManager.load("card.png", Texture.class);
+    assetManager.load("music.mp3", Music.class);
 
+  }
+
+  public Music getMusic() {
+    return music;
   }
 }
