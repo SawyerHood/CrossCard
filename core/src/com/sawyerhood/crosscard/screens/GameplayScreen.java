@@ -2,9 +2,12 @@ package com.sawyerhood.crosscard.screens;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.CardActor;
@@ -23,8 +26,36 @@ public class GameplayScreen extends MenuScreen {
   private Label[] horiScores;
 
   public GameplayScreen(CrossCardGame game) {
-
     super(game);
+    initBoard();
+
+  }
+
+  @Override
+  public void render(float delta) {
+    super.render(delta);
+    if (gameManager.isGameOver()) {
+      // TODO Implement what to do if the game is over.
+    }
+    updateCards();
+    playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+
+
+  }
+
+
+  private void initBoard() {
+    gameManager = new CrossCardGameManager();
+    Texture cardImage = ((CrossCardGame) game).getAssetManger().get("card.png", Texture.class);
+    BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt", BitmapFont.class);
+    Table reserveTable = new Table();
+    TextButton reserveButton = new TextButton("Reserve", uiSkin);
+    cardGameTable = new Table();
+    playerCards = new Table();
+    currentCard = new CardActor(cardImage, font, null);
+    reserveCard = new CardActor(cardImage, font, null);
+    playerLabel = new Label(gameManager.getCurrentPlayer().toString(), uiSkin);
+    cardGrid = new CardActor[3][3];
     vertScores = new Label[3];
     horiScores = new Label[3];
 
@@ -34,25 +65,32 @@ public class GameplayScreen extends MenuScreen {
     }
 
 
-    gameManager = new CrossCardGameManager();
     gameManager.nextTurn();
-    Texture cardImage = game.getAssetManger().get("card.png", Texture.class);
-    BitmapFont font = game.getAssetManger().get("default.fnt", BitmapFont.class);
-    playerLabel = new Label(gameManager.getCurrentPlayer().toString(), uiSkin);
-    cardGrid = new CardActor[3][3];
+
+
+    reserveButton.addListener(new ChangeListener() {
+
+      @Override
+      public void changed(ChangeEvent event, Actor actor) {
+        gameManager.reserveCard();
+      }
+    });
+
+    reserveTable.add(reserveCard).padBottom(15);
+    reserveTable.row();
+    reserveTable.add(reserveButton);
     table.add(playerLabel).pad(15).center();
     table.row();
-    cardGameTable = new Table();
-    playerCards = new Table();
-    currentCard = new CardActor(cardImage, font, null);
-    reserveCard = new CardActor(cardImage, font, null);
+    // Add Vertical scores and player card slots to table.
     playerCards.add(currentCard).pad(15);
     playerCards.row();
-    playerCards.add(reserveCard).pad(15);
+    playerCards.add(reserveTable).pad(15);
     cardGameTable.add(vertScores[0]).pad(15);
     cardGameTable.add(vertScores[1]).pad(15);
     cardGameTable.add(vertScores[2]).pad(15);
     cardGameTable.row();
+
+
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         CardActor card = new CardActor(cardImage, font, null);
@@ -81,18 +119,6 @@ public class GameplayScreen extends MenuScreen {
     }
     table.add(cardGameTable);
     table.add(playerCards);
-  }
-
-  @Override
-  public void render(float delta) {
-    super.render(delta);
-    if (gameManager.isGameOver()) {
-      // TODO Implement what to do if the game is over.
-    }
-    updateCards();
-    playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
-
-
   }
 
   private void updateCards() {

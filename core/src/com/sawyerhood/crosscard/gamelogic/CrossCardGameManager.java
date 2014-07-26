@@ -52,7 +52,10 @@ public class CrossCardGameManager {
    * @return
    */
   public boolean reserveCard() {
-    return turnManager.getCurrentPlayer().reserve();
+    boolean reserve = turnManager.getCurrentPlayer().reserve();
+    if (reserve)
+      drawCard();
+    return reserve;
   }
 
   /**
@@ -60,7 +63,8 @@ public class CrossCardGameManager {
    */
   public void nextTurn() {
     turnManager.nextTurn();
-    getCurrentPlayer().giveCard(deck.draw());
+    if (getCurrentPlayer().getCurrentCard() == null)
+      getCurrentPlayer().giveCard(deck.draw());
 
   }
 

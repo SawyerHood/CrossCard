@@ -42,6 +42,7 @@ public class CrossCardPlayer {
   public CrossCard popCard() {
     CrossCard toReturn = currentCard;
     currentCard = reserve;
+    reserve = null;
     return toReturn;
   }
 
