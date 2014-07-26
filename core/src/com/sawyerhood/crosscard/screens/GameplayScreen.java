@@ -42,6 +42,7 @@ public class GameplayScreen extends MenuScreen {
     }
     if (gameManager.isGameOver()) {
       // TODO Implement what to do if the game is over.
+      game.setScreen(new MainMenuScreen(game));
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
