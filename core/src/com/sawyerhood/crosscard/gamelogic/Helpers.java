@@ -131,8 +131,8 @@ public class Helpers {
 
   public static List<CrossCardPlayer> generateStandardPlayers() {
     List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
-    players.add(new CrossCardPlayer(CardType.VERTICAL, "Player 1"));
-    players.add(new CrossCardPlayer(CardType.HORIZONTAL, "Player 2"));
+    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
+    players.add(new CrossCardPlayer(CardType.HORIZONTAL, "Horizontal"));
     return players;
   }
 
