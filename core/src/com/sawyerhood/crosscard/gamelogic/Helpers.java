@@ -42,6 +42,22 @@ public class Helpers {
 
     }
   }
+  
+  public enum AIDifficulty {
+	  EASY, MEDIUM, HARD;
+	  
+	  public String toString() {
+		  if (this == EASY) return "EASY";
+		  else if (this == MEDIUM) return "MEDIUM";
+		  else return "HARD";
+	  }
+	  
+	  public long toTime() {
+		  if (this == EASY) return (long) 1000;
+		  else if (this == MEDIUM) return (long) 2000;
+		  else return (long) 4000;
+	  }
+  }
 
 
 

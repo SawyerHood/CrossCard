@@ -23,12 +23,8 @@ public class CrossCardBoard {
     initGrid(3, 3);
   }
 
-  public CrossCardBoard(CrossCardBoard other) {
-    this.grid = other.getGrid();
-  }
-
-  public CrossCard[][] getGrid() {
-    return this.grid;
+  public CrossCardBoard(CrossCard[][] grid) {
+    this.grid = grid;
   }
 
   /**
@@ -206,5 +202,10 @@ public class CrossCardBoard {
 
   public CrossCard getCard(int row, int col) {
     return grid[row][col];
+  }
+  
+  public CrossCardBoard clone() {
+	  CrossCard[][] cloneGrid = this.grid;
+	  return new CrossCardBoard(cloneGrid);
   }
 }
