@@ -48,7 +48,7 @@ public class Helpers {
    * @author David
    *
    */
-  public enum AIDifficulty { 
+  public enum AIDifficulty {
 	  EASY, MEDIUM, HARD;
 	  
 	  public String toString() {
@@ -61,7 +61,7 @@ public class Helpers {
 	  public long toTime() {
 		  if (this == EASY) return (long) 1000;
 		  else if (this == MEDIUM) return (long) 2000;
-		  else return (long) 5000;
+		  else return (long) 4000;
 	  }
   }
 
