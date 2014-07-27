@@ -203,9 +203,13 @@ public class CrossCardBoard {
   public CrossCard getCard(int row, int col) {
     return grid[row][col];
   }
-  
+ 
   public CrossCardBoard clone() {
 	  CrossCard[][] cloneGrid = this.grid;
 	  return new CrossCardBoard(cloneGrid);
+  }
+
+  public CardType getWinner() {
+    return getMaxColValue() > getMaxRowValue() ? CardType.VERTICAL : CardType.HORIZONTAL;
   }
 }

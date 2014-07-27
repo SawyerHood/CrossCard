@@ -38,6 +38,15 @@ public class CrossCardTurnManager implements TurnManager {
     return players.get(currentIndex);
   }
 
+  @Override
+  public CrossCardPlayer getOtherPlayer() {
+    int newIndex = currentIndex + 1;
+    if (newIndex >= players.size()) {
+      newIndex = 0;
+    }
+    return players.get(newIndex);
+  }
+
 
 
 }

@@ -9,6 +9,9 @@ import com.sawyerhood.crosscard.gamelogic.CrossCard;
 public class CardActor extends Image {
   private BitmapFont font;
   private CrossCard card;
+  public int row;
+  public int col;
+
 
   public CardActor(Texture texture, BitmapFont font, CrossCard card) {
     super(texture);
