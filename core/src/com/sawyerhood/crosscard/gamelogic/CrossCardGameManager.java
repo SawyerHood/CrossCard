@@ -100,5 +100,12 @@ public class CrossCardGameManager {
     return board;
   }
 
+  public CrossCardPlayer getWinner() {
+    if (turnManager.getCurrentPlayer().getSide() == board.getWinner()) {
+      return turnManager.getCurrentPlayer();
+    }
+    return turnManager.getOtherPlayer();
+  }
+
 
 }
