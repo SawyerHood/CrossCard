@@ -42,7 +42,7 @@ public class GameplayScreen extends MenuScreen {
     }
     if (gameManager.isGameOver()) {
       // TODO Implement what to do if the game is over.
-      game.setScreen(new MainMenuScreen(game));
+      game.setScreen(new GameOverScreen(game, this));
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
@@ -129,6 +129,15 @@ public class GameplayScreen extends MenuScreen {
     currentCard.setCard(gameManager.getCurrentPlayer().getCurrentCard());
     reserveCard.setCard(gameManager.getCurrentPlayer().getReserve());
 
+  }
+
+  public CrossCardGameManager getGameManager() {
+
+    return gameManager;
+  }
+
+  public void clear() {
+    gameManager = new CrossCardGameManager();
   }
 
 

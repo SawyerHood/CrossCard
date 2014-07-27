@@ -7,4 +7,6 @@ public interface TurnManager {
   public abstract void nextTurn();
 
   public abstract CrossCardPlayer getCurrentPlayer();
+
+  public abstract CrossCardPlayer getOtherPlayer();
 }

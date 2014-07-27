@@ -207,4 +207,8 @@ public class CrossCardBoard {
   public CrossCard getCard(int row, int col) {
     return grid[row][col];
   }
+
+  public CardType getWinner() {
+    return getMaxColValue() > getMaxRowValue() ? CardType.VERTICAL : CardType.HORIZONTAL;
+  }
 }
