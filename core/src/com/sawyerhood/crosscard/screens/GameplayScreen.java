@@ -3,19 +3,18 @@ package com.sawyerhood.crosscard.screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.sawyerhood.crosscard.CrossCardGame;
+import com.sawyerhood.crosscard.actors.BoardClickListener;
 import com.sawyerhood.crosscard.actors.CardActor;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 
 public class GameplayScreen extends MenuScreen {
 
-  private CrossCardGameManager gameManager;
+  protected CrossCardGameManager gameManager;
   private CardActor[][] cardGrid;
   private Label playerLabel;
   private Table cardGameTable;
@@ -24,28 +23,37 @@ public class GameplayScreen extends MenuScreen {
   private CardActor reserveCard;
   private Label[] vertScores;
   private Label[] horiScores;
+  private boolean passingPhone = false;
 
   public GameplayScreen(CrossCardGame game) {
     super(game);
-    initBoard();
+    gameManager = new CrossCardGameManager();
+    initBoard(new BoardClickListener(gameManager));
 
   }
+
+
 
   @Override
   public void render(float delta) {
     super.render(delta);
+    if (passingPhone) {
+
+    }
     if (gameManager.isGameOver()) {
       // TODO Implement what to do if the game is over.
+      game.setScreen(new GameOverScreen(game, this));
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+    playerLabel.setFontScale(2f);
 
 
   }
 
 
-  private void initBoard() {
-    gameManager = new CrossCardGameManager();
+  public void initBoard(BoardClickListener boardListener) {
+
     Texture cardImage = ((CrossCardGame) game).getAssetManger().get("card.png", Texture.class);
     BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt", BitmapFont.class);
     Table reserveTable = new Table();
@@ -58,6 +66,8 @@ public class GameplayScreen extends MenuScreen {
     cardGrid = new CardActor[3][3];
     vertScores = new Label[3];
     horiScores = new Label[3];
+
+
 
     for (int i = 0; i < 3; i++) {
       vertScores[i] = new Label(null, uiSkin);
@@ -96,20 +106,7 @@ public class GameplayScreen extends MenuScreen {
         CardActor card = new CardActor(cardImage, font, null);
         card.row = i;
         card.col = j;
-        card.addCaptureListener(new ClickListener() {
-
-          public void clicked(InputEvent event, float x, float y) {
-
-            CardActor thisCard = ((CardActor) event.getListenerActor());
-            if (gameManager.getBoard().placeCard(thisCard.row, thisCard.col,
-                gameManager.getCurrentPlayer().getCurrentCard())) {
-              gameManager.getCurrentPlayer().popCard();
-              gameManager.nextTurn();
-            }
-
-
-          }
-        });
+        card.addCaptureListener(boardListener);
 
         cardGameTable.add(card).pad(15);
         cardGrid[i][j] = card;
@@ -133,4 +130,15 @@ public class GameplayScreen extends MenuScreen {
     reserveCard.setCard(gameManager.getCurrentPlayer().getReserve());
 
   }
+
+  public CrossCardGameManager getGameManager() {
+
+    return gameManager;
+  }
+
+  public void clear() {
+    gameManager = new CrossCardGameManager();
+  }
+
+
 }

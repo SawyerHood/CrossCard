@@ -1,5 +1,6 @@
 package com.sawyerhood.crosscard.screens;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -8,11 +9,13 @@ import com.sawyerhood.crosscard.CrossCardGame;
 
 public class OptionsScreen extends MenuScreen {
 
+  private TextButton toggleSoundButton;
+
   public OptionsScreen(final CrossCardGame game) {
     super(game);
     Label title = new Label("Options!", uiSkin);
     title.setScale((float) 2.0);
-    TextButton toggleSoundButton = new TextButton("Toggle Sound", uiSkin);
+    toggleSoundButton = new TextButton("Toggle Sound: ON", uiSkin);
     TextButton difficultyButton = new TextButton("Difficulty", uiSkin);
     TextButton saveSettingsButton = new TextButton("Save and Quit", uiSkin);
 
@@ -24,7 +27,17 @@ public class OptionsScreen extends MenuScreen {
     table.row();
     table.add(saveSettingsButton).width(300).height(50).pad(12);
 
-    table.addListener(new ChangeListener() {
+    toggleSoundButton.addListener(new ChangeListener() {
+
+      @Override
+      public void changed(ChangeEvent event, Actor actor) {
+        toggleSound();
+
+      }
+
+    });
+
+    saveSettingsButton.addListener(new ChangeListener() {
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {
@@ -40,7 +53,14 @@ public class OptionsScreen extends MenuScreen {
 
 
   private void toggleSound() {
-
+    Music music = ((CrossCardGame) game).getMusic();
+    if (music.isPlaying()) {
+      music.pause();
+      toggleSoundButton.setText("Toggle Sound: OFF");
+    } else {
+      music.play();
+      toggleSoundButton.setText("Toggle Sound: ON");
+    }
   }
 
   private void setAIDifficulty(String difficulty) {
