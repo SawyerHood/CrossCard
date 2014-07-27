@@ -15,7 +15,7 @@ public class GameOverScreen extends MenuScreen {
     TextButton newGame = new TextButton("Play again!", uiSkin);
     TextButton mainMenu = new TextButton("Main Menu", uiSkin);
     this.screen = screen;
-    table.add(new Label("Player " + screen.getGameManager().getWinner() + " wins!", uiSkin))
+    table.add(new Label(screen.getGameManager().getWinner() + "  player wins!", uiSkin))
         .pad(15);
     table.row();
     table.add(newGame).pad(15);
