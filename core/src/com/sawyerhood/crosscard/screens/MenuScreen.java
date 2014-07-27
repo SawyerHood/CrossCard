@@ -1,5 +1,6 @@
 package com.sawyerhood.crosscard.screens;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -30,7 +31,8 @@ public abstract class MenuScreen extends AbstractScreen {
     OrthographicCamera camera =
         new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-    camera.zoom = 0.6f;
+    if (Gdx.app.getType() == Application.ApplicationType.Android)
+      camera.zoom = .6f;
     menuStage = new Stage(new ScreenViewport(camera));
     Gdx.input.setInputProcessor(menuStage);
     table = new Table();
