@@ -45,6 +45,7 @@ public class GameplayScreen extends MenuScreen {
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+    playerLabel.setFontScale(2f);
 
 
   }
