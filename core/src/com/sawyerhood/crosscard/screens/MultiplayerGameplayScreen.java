@@ -24,7 +24,7 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
     nextPlayerDialog = new Dialog("Next player", uiSkin);
 
-    nextPlayerDialog.text("Pass the phone ot the next player.");
+    nextPlayerDialog.text("Pass the phone to the next player.");
 
     TextButton nextPlayerButton = new TextButton("OK", uiSkin);
 

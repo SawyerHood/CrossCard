@@ -1,10 +1,10 @@
 package com.sawyerhood.crosscard.screens;
 
-import com.badlogic.gdx.Game;
+import com.sawyerhood.crosscard.CrossCardGame;
 
 public class SplashScreen extends AbstractScreen {
 
-  public SplashScreen(Game game) {
+  public SplashScreen(CrossCardGame game) {
     super(game);
     // TODO Auto-generated constructor stub
   }
