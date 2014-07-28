@@ -48,7 +48,7 @@ public class CrossCardGame extends Game {
     Gdx.gl.glClearColor(0, 0, 0, 1);
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     batch.begin();
-    batch.draw(this.background, 0, 0);
+    batch.draw(this.background, -300, -300);
     batch.end();
     if (assetManager.update()) {
       if (getScreen() == null) {
