@@ -13,6 +13,7 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
   public MultiplayerGameplayScreen(CrossCardGame game) {
     super(game);
+    gameType = "multiplayer";
 
   }
 
@@ -51,6 +52,10 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
   public void showDialog() {
     nextPlayerDialog.show(menuStage);
 
+  }
+  
+  private void gameOver(){
+	  game.setScreen(new GameOverScreen(game, this, "multiplayer"));
   }
 
 

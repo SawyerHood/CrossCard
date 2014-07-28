@@ -24,11 +24,13 @@ public class GameplayScreen extends MenuScreen {
   private Label[] vertScores;
   private Label[] horiScores;
   private boolean passingPhone = false;
+  protected String gameType;
 
   public GameplayScreen(CrossCardGame game) {
     super(game);
     gameManager = new CrossCardGameManager();
     initBoard(new BoardClickListener(gameManager));
+    gameType = "";
 
   }
 
@@ -42,7 +44,7 @@ public class GameplayScreen extends MenuScreen {
     }
     if (gameManager.isGameOver()) {
       // TODO Implement what to do if the game is over.
-      game.setScreen(new GameOverScreen(game, this));
+      gameOver();
     }
     updateCards();
     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
@@ -138,6 +140,10 @@ public class GameplayScreen extends MenuScreen {
 
   public void clear() {
     gameManager = new CrossCardGameManager();
+  }
+  
+  private void gameOver(){
+	  game.setScreen(new GameOverScreen(game, this, gameType));
   }
 
 

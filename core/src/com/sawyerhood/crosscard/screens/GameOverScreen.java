@@ -10,7 +10,7 @@ public class GameOverScreen extends MenuScreen {
 
   private GameplayScreen screen;
 
-  public GameOverScreen(final CrossCardGame game, final GameplayScreen screen) {
+  public GameOverScreen(final CrossCardGame game, final GameplayScreen screen, final String gameType) {
     super(game);
     TextButton newGame = new TextButton("Play again!", uiSkin);
     TextButton mainMenu = new TextButton("Main Menu", uiSkin);
@@ -25,8 +25,12 @@ public class GameOverScreen extends MenuScreen {
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-
-        game.setScreen(new MultiplayerGameplayScreen(game));
+    	  if(gameType.equals("multiplayer")){
+    		  game.setScreen(new MultiplayerGameplayScreen(game));
+    	  } else {
+    		  game.setScreen(new SingleplayerGameplayScreen(game));
+    	  }
+        
 
       }
 
