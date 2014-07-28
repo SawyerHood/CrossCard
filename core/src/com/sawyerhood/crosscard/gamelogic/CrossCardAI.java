@@ -189,6 +189,6 @@ public class CrossCardAI extends CrossCardPlayer{
 			ai2.turn(board, deck);
 			System.out.println(board);
 		}
-		System.out.println(board.getWinner());
+		System.out.println(board.getWinner(deck));
 	}
 }

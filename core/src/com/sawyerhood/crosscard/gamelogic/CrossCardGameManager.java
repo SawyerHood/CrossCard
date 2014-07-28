@@ -101,7 +101,7 @@ public class CrossCardGameManager {
   }
 
   public CrossCardPlayer getWinner() {
-    if (turnManager.getCurrentPlayer().getSide() == board.getWinner()) {
+    if (turnManager.getCurrentPlayer().getSide() == board.getWinner(deck)) {
       return turnManager.getCurrentPlayer();
     }
     return turnManager.getOtherPlayer();

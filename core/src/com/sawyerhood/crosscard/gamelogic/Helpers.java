@@ -28,7 +28,7 @@ public class Helpers {
    */
 
   public enum CardType {
-    HORIZONTAL, VERTICAL, CROSS, DOT;
+    HORIZONTAL, VERTICAL, CROSS, DOT, FACEDOWN;
 
     public String toString() {
       if (this == HORIZONTAL)
@@ -37,6 +37,8 @@ public class Helpers {
         return "|";
       else if (this == CROSS)
         return "+";
+      else if (this == FACEDOWN)
+    	  return "CC";
       else
         return "*";
 

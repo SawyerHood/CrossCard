@@ -25,6 +25,7 @@ public class GameplayScreen extends MenuScreen {
   private Label[] horiScores;
   private boolean passingPhone = false;
   protected String gameType;
+  private TextButton continueButton;
 
   public GameplayScreen(CrossCardGame game) {
     super(game);
@@ -44,10 +45,13 @@ public class GameplayScreen extends MenuScreen {
     }
     if (gameManager.isGameOver()) {
       // TODO Implement what to do if the game is over.
-      gameOver();
+      continueButton.setVisible(true);
+      playerLabel.setText(gameManager.getWinner().toString() + " won!");
+    }
+    else{
+     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
     }
     updateCards();
-    playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
     playerLabel.setFontScale(2f);
 
 
@@ -60,6 +64,7 @@ public class GameplayScreen extends MenuScreen {
     BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt", BitmapFont.class);
     Table reserveTable = new Table();
     TextButton reserveButton = new TextButton("Reserve", uiSkin);
+    continueButton = new TextButton("Continue", uiSkin);
     cardGameTable = new Table();
     playerCards = new Table();
     currentCard = new CardActor(cardImage, font, null);
@@ -68,6 +73,17 @@ public class GameplayScreen extends MenuScreen {
     cardGrid = new CardActor[3][3];
     vertScores = new Label[3];
     horiScores = new Label[3];
+    continueButton.setVisible(false);
+    continueButton.addListener(new ChangeListener(){
+
+		@Override
+		public void changed(ChangeEvent event, Actor actor) {
+			gameOver();
+		}
+    	
+    });
+    
+    
 
 
 
@@ -118,6 +134,8 @@ public class GameplayScreen extends MenuScreen {
     }
     table.add(cardGameTable);
     table.add(playerCards);
+    table.row();
+    table.add(continueButton);
   }
 
   private void updateCards() {

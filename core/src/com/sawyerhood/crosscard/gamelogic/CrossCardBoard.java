@@ -40,6 +40,8 @@ public class CrossCardBoard {
         grid[i][j] = null;
       }
     }
+    
+    grid[1][1] = new CrossCard(CardType.FACEDOWN, 0); //Makes the middle card facedown.
   }
 
   /**
@@ -220,7 +222,13 @@ public class CrossCardBoard {
 	  return new CrossCardBoard(cloneGrid);
   }
 
-  public CardType getWinner() {
-    return getMaxColValue() > getMaxRowValue() ? CardType.VERTICAL : CardType.HORIZONTAL;
+  public CardType getWinner(CrossCardDeck deck) {
+	  if(isBoardFull()){
+		  if(grid[1][1].getCardType() == CardType.FACEDOWN)
+			  grid[1][1] = deck.draw();
+		  return getMaxColValue() > getMaxRowValue() ? CardType.VERTICAL : CardType.HORIZONTAL;
+	  }
+	  return null;
+    
   }
 }
