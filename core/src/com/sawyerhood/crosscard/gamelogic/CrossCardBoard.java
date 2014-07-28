@@ -40,8 +40,8 @@ public class CrossCardBoard {
         grid[i][j] = null;
       }
     }
-    
-    grid[1][1] = new CrossCard(CardType.FACEDOWN, 0); //Makes the middle card facedown.
+
+    grid[1][1] = new CrossCard(CardType.FACEDOWN, 0); // Makes the middle card facedown.
   }
 
   /**
@@ -140,6 +140,26 @@ public class CrossCardBoard {
     return Collections.max(values);
   }
 
+  public ArrayList<Integer> getSortedColValues() {
+    ArrayList<Integer> values = new ArrayList<Integer>();
+    for (int i = 0; i < grid[0].length; i++) {
+      values.add(getColValue(i));
+    }
+    Collections.sort(values);
+    return values;
+  }
+
+  public ArrayList<Integer> getSortedRowValues() {
+    ArrayList<Integer> values = new ArrayList<Integer>();
+    for (int i = 0; i < grid.length; i++) {
+      values.add(getRowValue(i));
+    }
+    Collections.sort(values);
+    return values;
+  }
+
+
+
   /**
    * Used only for the text version of the game.
    */
@@ -205,30 +225,37 @@ public class CrossCardBoard {
   public CrossCard getCard(int row, int col) {
     return grid[row][col];
   }
- 
+
   public CrossCardBoard clone() {
-	  CrossCard[][] cloneGrid = new CrossCard[3][3];
-	  for (int i=0; i < 3; i++) {
-		  for (int j=0; j < 3; j++) {
-			  if (this.isOccupied(i,j)) {
-				  CardType cloneType = this.grid[i][j].getCardType();
-				  int cloneValue = this.grid[i][j].getValue();
-				  cloneGrid[i][j] = new CrossCard(cloneType, cloneValue);
-			  }
-			  else
-				  cloneGrid[i][j] = null;
-		  }
-	  }
-	  return new CrossCardBoard(cloneGrid);
+    CrossCard[][] cloneGrid = new CrossCard[3][3];
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        if (this.isOccupied(i, j)) {
+          CardType cloneType = this.grid[i][j].getCardType();
+          int cloneValue = this.grid[i][j].getValue();
+          cloneGrid[i][j] = new CrossCard(cloneType, cloneValue);
+        } else
+          cloneGrid[i][j] = null;
+      }
+    }
+    return new CrossCardBoard(cloneGrid);
   }
 
   public CardType getWinner(CrossCardDeck deck) {
-	  if(isBoardFull()){
-		  if(grid[1][1].getCardType() == CardType.FACEDOWN)
-			  grid[1][1] = deck.draw();
-		  return getMaxColValue() > getMaxRowValue() ? CardType.VERTICAL : CardType.HORIZONTAL;
-	  }
-	  return null;
-    
+    if (isBoardFull()) {
+      if (grid[1][1].getCardType() == CardType.FACEDOWN)
+        grid[1][1] = deck.draw();
+      ArrayList<Integer> rowVals = getSortedRowValues();
+      ArrayList<Integer> colVals = getSortedColValues();
+      for (int i = rowVals.size() - 1; i >= 0; i--) {
+        if (rowVals.get(i) > colVals.get(i))
+          return CardType.HORIZONTAL;
+        if (colVals.get(i) > rowVals.get(i))
+          return CardType.VERTICAL;
+
+      }
+    }
+    return null;
+
   }
 }

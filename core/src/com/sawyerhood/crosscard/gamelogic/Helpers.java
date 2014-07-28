@@ -3,13 +3,13 @@ package com.sawyerhood.crosscard.gamelogic;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/*import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;*/
+/*
+ * import com.google.gson.Gson; import com.google.gson.reflect.TypeToken;
+ */
 
 /**
  * 
@@ -38,48 +38,54 @@ public class Helpers {
       else if (this == CROSS)
         return "+";
       else if (this == FACEDOWN)
-    	  return "CC";
+        return "CC";
       else
         return "*";
 
     }
   }
-  
+
   /**
-   * Enum used during creation of the GameAI object. Determines the amount of processing time used during simulations.
+   * Enum used during creation of the GameAI object. Determines the amount of processing time used
+   * during simulations.
+   * 
    * @author David
    *
    */
   public enum AIDifficulty {
-	  EASY, MEDIUM, HARD;
-	  
-	  public String toString() {
-		  if (this == EASY) return "EASY";
-		  else if (this == MEDIUM) return "MEDIUM";
-		  else return "HARD";
-	  }
-	  
-	  //converts the enum members into computational time in milliseconds.
-	  public long toTime() {
-		  if (this == EASY) return (long) 1000;
-		  else if (this == MEDIUM) return (long) 2000;
-		  else return (long) 4000;
-	  }
+    EASY, MEDIUM, HARD;
+
+    public String toString() {
+      if (this == EASY)
+        return "EASY";
+      else if (this == MEDIUM)
+        return "MEDIUM";
+      else
+        return "HARD";
+    }
+
+    // converts the enum members into computational time in milliseconds.
+    public long toTime() {
+      if (this == EASY)
+        return (long) 1000;
+      else if (this == MEDIUM)
+        return (long) 2000;
+      else
+        return (long) 4000;
+    }
   }
-
-
 
   /**
    * 
    * @param json A string of json data
    * @return A collection of CrossCards generated from the json.
    */
-  /*public static Collection<CrossCard> loadDeck(String json) {
-    Gson gson = new Gson();
-    Type collectionType = new TypeToken<Collection<CrossCardDeckTemplate>>() {}.getType();
-    Collection<CrossCardDeckTemplate> cards = gson.fromJson(json, collectionType);
-    return templateToCards(cards);
-  }*/
+  /*
+   * public static Collection<CrossCard> loadDeck(String json) { Gson gson = new Gson(); Type
+   * collectionType = new TypeToken<Collection<CrossCardDeckTemplate>>() {}.getType();
+   * Collection<CrossCardDeckTemplate> cards = gson.fromJson(json, collectionType); return
+   * templateToCards(cards); }
+   */
 
   /**
    * 
@@ -137,14 +143,12 @@ public class Helpers {
     players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
     return players;
   }
-  
+
   public static List<CrossCardPlayer> generateAIPlayers() {
-	  List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
-	    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
-	    players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", AIDifficulty.EASY));
-	    return players;
+    List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
+    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
+    players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", AIDifficulty.EASY));
+    return players;
   }
-
-
 
 }
