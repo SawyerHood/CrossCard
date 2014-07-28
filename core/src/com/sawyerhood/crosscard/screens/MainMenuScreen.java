@@ -52,7 +52,7 @@ public class MainMenuScreen extends MenuScreen {
     singlePlayerButton.addListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-        game.setScreen(new GameplayScreen(game));
+        game.setScreen(new SingleplayerGameplayScreen(game));
       }
     });
 

@@ -133,9 +133,16 @@ public class Helpers {
 
   public static List<CrossCardPlayer> generateStandardPlayers() {
     List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
-    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
     players.add(new CrossCardPlayer(CardType.HORIZONTAL, "Horizontal"));
+    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
     return players;
+  }
+  
+  public static List<CrossCardPlayer> generateAIPlayers() {
+	  List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
+	    players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
+	    players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", AIDifficulty.EASY));
+	    return players;
   }
 
 

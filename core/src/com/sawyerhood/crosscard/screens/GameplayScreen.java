@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.BoardClickListener;
 import com.sawyerhood.crosscard.actors.CardActor;
+import com.sawyerhood.crosscard.gamelogic.CrossCardAI;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 
 public class GameplayScreen extends MenuScreen {
@@ -29,7 +30,7 @@ public class GameplayScreen extends MenuScreen {
 
   public GameplayScreen(CrossCardGame game) {
     super(game);
-    gameManager = new CrossCardGameManager();
+    initGameManager();
     initBoard(new BoardClickListener(gameManager));
     gameType = "";
 
@@ -40,16 +41,16 @@ public class GameplayScreen extends MenuScreen {
   @Override
   public void render(float delta) {
     super.render(delta);
-    if (passingPhone) {
-
-    }
+   
     if (gameManager.isGameOver()) {
-      // TODO Implement what to do if the game is over.
       continueButton.setVisible(true);
       playerLabel.setText(gameManager.getWinner().toString() + " won!");
     }
     else{
      playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+     turnHandle();
+    
+     
     }
     updateCards();
     playerLabel.setFontScale(2f);
@@ -162,6 +163,14 @@ public class GameplayScreen extends MenuScreen {
   
   private void gameOver(){
 	  game.setScreen(new GameOverScreen(game, this, gameType));
+  }
+  
+  protected void turnHandle(){
+	  
+  }
+  
+  protected void initGameManager(){
+	  gameManager = new CrossCardGameManager();
   }
 
 

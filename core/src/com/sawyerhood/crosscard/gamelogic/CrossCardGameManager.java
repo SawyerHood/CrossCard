@@ -25,6 +25,10 @@ public class CrossCardGameManager {
     this.deck = deck;
     this.board = board;
   }
+  
+  public CrossCardGameManager(TurnManager turnManager){
+	  this(turnManager, new CrossCardDeck(Helpers.generateStandardDeck()), new CrossCardBoard());
+  }
 
   /**
    * Returns true if the game is over, false otherwise.
@@ -105,6 +109,10 @@ public class CrossCardGameManager {
       return turnManager.getCurrentPlayer();
     }
     return turnManager.getOtherPlayer();
+  }
+  
+  public CrossCardDeck getDeck(){
+	  return deck;
   }
 
 
