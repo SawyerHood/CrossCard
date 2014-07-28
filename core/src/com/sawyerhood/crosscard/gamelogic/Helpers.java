@@ -144,10 +144,10 @@ public class Helpers {
     return players;
   }
 
-  public static List<CrossCardPlayer> generateAIPlayers() {
+  public static List<CrossCardPlayer> generateAIPlayers(AIDifficulty d) {
     List<CrossCardPlayer> players = new ArrayList<CrossCardPlayer>();
     players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
-    players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", AIDifficulty.EASY));
+    players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", d));
     return players;
   }
 

@@ -17,8 +17,7 @@ import com.sawyerhood.crosscard.CrossCardGame;
 public class MainMenuScreen extends MenuScreen {
 
   /**
-   * Instantiates a MainMenuScreen by populating a table full of buttons and
-   * labels.
+   * Instantiates a MainMenuScreen by populating a table full of buttons and labels.
    * 
    * @param game the game that will contain this screen
    */
@@ -31,7 +30,7 @@ public class MainMenuScreen extends MenuScreen {
       @Override
       public void act(float delta) {
         super.act(delta);
-        if (timeSinceFlash >= 2) {
+        if (timeSinceFlash >= 1) {
           if (getColor().a >= 1.0)
             getColor().a = (float) 0.0;
           else

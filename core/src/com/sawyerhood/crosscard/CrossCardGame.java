@@ -107,12 +107,23 @@ public class CrossCardGame extends Game {
     else
       music.pause();
     String difficulty = prefs.getString("difficulty", "EASY");
-    if (difficulty.equals("EASY"))
+    setDifficultyFromString(difficulty);
+  }
+
+  public AIDifficulty getDifficulty() {
+    return diff;
+  }
+
+  public void setDifficulty(AIDifficulty d) {
+    diff = d;
+  }
+
+  public void setDifficultyFromString(String s) {
+    if (s.equals("EASY"))
       diff = AIDifficulty.EASY;
-    else if (difficulty.equals("MEDIUM"))
+    else if (s.equals("MEDIUM"))
       diff = AIDifficulty.MEDIUM;
     else
       diff = AIDifficulty.HARD;
-
   }
 }
