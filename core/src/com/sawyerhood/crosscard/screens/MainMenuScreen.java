@@ -78,7 +78,12 @@ public class MainMenuScreen extends MenuScreen {
     // Credits button
     TextButton creditsButton = new TextButton("Credits", uiSkin);
     creditsButton.getLabel().setFontScale(fontScale);
-    // TODO add a listener
+    creditsButton.addListener(new ChangeListener() {
+      @Override
+      public void changed(ChangeEvent event, Actor actor) {
+        game.setScreen(new CreditsScreen(game));
+      }
+    });
 
     // Exit button
     TextButton exitButton = new TextButton("Exit", uiSkin);
