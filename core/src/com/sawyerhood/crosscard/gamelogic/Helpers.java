@@ -67,11 +67,11 @@ public class Helpers {
     // converts the enum members into computational time in milliseconds.
     public long toTime() {
       if (this == EASY)
-        return (long) 1000;
+        return (long) 200;
       else if (this == MEDIUM)
-        return (long) 2000;
+        return (long) 400;
       else
-        return (long) 4000;
+        return (long) 1000;
     }
   }
 

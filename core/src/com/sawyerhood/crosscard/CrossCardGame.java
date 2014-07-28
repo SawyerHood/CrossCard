@@ -2,6 +2,7 @@ package com.sawyerhood.crosscard;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.SkinLoader;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.sawyerhood.crosscard.gamelogic.Helpers.AIDifficulty;
 import com.sawyerhood.crosscard.screens.MainMenuScreen;
 
 /**
@@ -27,12 +29,15 @@ public class CrossCardGame extends Game {
   protected Texture img;
   private AssetManager assetManager = null;
   private Music music;
+  private Preferences prefs;
+  private AIDifficulty diff;
 
   @Override
   public void create() {
     batch = new SpriteBatch();
     // setScreen(new MainMenuScreen(this));
     initManager();
+    prefs = Gdx.app.getPreferences("CrossCardPrefs");
   }
 
   @Override
@@ -47,6 +52,7 @@ public class CrossCardGame extends Game {
         music = assetManager.get("music.mp3");
         music.play();
         music.setLooping(true);
+        loadPrefs();
       }
       super.render();
     }
@@ -89,5 +95,24 @@ public class CrossCardGame extends Game {
    */
   public Music getMusic() {
     return music;
+  }
+
+  public Preferences getPrefs() {
+    return prefs;
+  }
+
+  public void loadPrefs() {
+    if (prefs.getBoolean("sound", true))
+      music.play();
+    else
+      music.pause();
+    String difficulty = prefs.getString("difficulty", "EASY");
+    if (difficulty.equals("EASY"))
+      diff = AIDifficulty.EASY;
+    else if (difficulty.equals("MEDIUM"))
+      diff = AIDifficulty.MEDIUM;
+    else
+      diff = AIDifficulty.HARD;
+
   }
 }

@@ -14,12 +14,13 @@ public class OptionsScreen extends MenuScreen {
 
   public OptionsScreen(final CrossCardGame game) {
     super(game);
+    final Music music = ((CrossCardGame) game).getMusic();
     Label title = new Label("Options!", uiSkin);
     title.setScale((float) 2.0);
-    toggleSoundButton = new TextButton("Toggle Sound: ON", uiSkin);
+    toggleSoundButton =
+        new TextButton(music.isPlaying() ? "Toggle Sound: ON" : "Toggle Sound: OFF", uiSkin);
     TextButton difficultyButton = new TextButton("Difficulty", uiSkin);
     TextButton saveSettingsButton = new TextButton("Save and Quit", uiSkin);
-
     table.add(title).pad(50);
     table.row();
     table.add(toggleSoundButton).width(300).height(50).pad(12);
@@ -42,6 +43,9 @@ public class OptionsScreen extends MenuScreen {
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {
+
+        game.getPrefs().putBoolean("sound", music.isPlaying());
+        game.getPrefs().flush();
         game.setScreen(new MainMenuScreen(game));
 
       }
@@ -65,7 +69,8 @@ public class OptionsScreen extends MenuScreen {
   }
 
   private void setAIDifficulty(AIDifficulty difficulty) {
-	  
+
+
   }
 
 }
