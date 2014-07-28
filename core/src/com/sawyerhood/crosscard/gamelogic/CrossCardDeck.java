@@ -1,5 +1,6 @@
 package com.sawyerhood.crosscard.gamelogic;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.sawyerhood.crosscard.CrossCardGame;
+import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
 
 /**
  * The deck class used to store a virtual deck of cards.
@@ -27,7 +29,7 @@ public class CrossCardDeck {
    */
   public CrossCardDeck(Collection<CrossCard> cards) {
     this.cards = (List) cards;
-    cardDrawSound = Gdx.audio.newSound(Gdx.files.internal("card_draw.wav"));
+    //cardDrawSound = Gdx.audio.newSound(Gdx.files.internal("card_draw.wav"));
     shuffle();
   }
 
@@ -47,7 +49,7 @@ public class CrossCardDeck {
     if (cards.size() == 0) {
       return null;
     }
-    cardDrawSound.play();
+    //cardDrawSound.play();
     return cards.remove(cards.size() - 1);
   }
 
@@ -55,7 +57,13 @@ public class CrossCardDeck {
    * Clones a deck.
    */
   public CrossCardDeck clone() {
-    return new CrossCardDeck(this.cards);
+	  List<CrossCard> cloneDeck = new ArrayList<CrossCard>(this.cards.size());
+	  for (int i=0; i < this.cards.size(); i++) {
+		  CardType cloneType = this.cards.get(i).getCardType();
+		  int cloneValue = this.cards.get(i).getValue();
+		  cloneDeck.add(new CrossCard(cloneType, cloneValue));
+	  }
+	  return new CrossCardDeck(cloneDeck);
   }
 
 }

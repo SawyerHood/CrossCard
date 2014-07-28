@@ -205,7 +205,18 @@ public class CrossCardBoard {
   }
  
   public CrossCardBoard clone() {
-	  CrossCard[][] cloneGrid = this.grid;
+	  CrossCard[][] cloneGrid = new CrossCard[3][3];
+	  for (int i=0; i < 3; i++) {
+		  for (int j=0; j < 3; j++) {
+			  if (this.isOccupied(i,j)) {
+				  CardType cloneType = this.grid[i][j].getCardType();
+				  int cloneValue = this.grid[i][j].getValue();
+				  cloneGrid[i][j] = new CrossCard(cloneType, cloneValue);
+			  }
+			  else
+				  cloneGrid[i][j] = null;
+		  }
+	  }
 	  return new CrossCardBoard(cloneGrid);
   }
 

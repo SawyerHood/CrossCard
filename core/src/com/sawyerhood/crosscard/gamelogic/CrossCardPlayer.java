@@ -25,6 +25,12 @@ public class CrossCardPlayer {
     }
     return false;
   }
+  
+  //used for the AI
+  public boolean reserve(CrossCard card) {
+	  this.reserve = card;
+	  return true;
+  }
 
   public CardType getSide() {
     return side;
