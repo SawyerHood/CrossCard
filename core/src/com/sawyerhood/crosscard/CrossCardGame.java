@@ -31,6 +31,8 @@ public class CrossCardGame extends Game {
   private Music music;
   private Preferences prefs;
   private AIDifficulty diff;
+  private Texture background;
+
 
   @Override
   public void create() {
@@ -38,12 +40,16 @@ public class CrossCardGame extends Game {
     // setScreen(new MainMenuScreen(this));
     initManager();
     prefs = Gdx.app.getPreferences("CrossCardPrefs");
+    background = new Texture("table_bg.jpg");
   }
 
   @Override
   public void render() {
     Gdx.gl.glClearColor(0, 0, 0, 1);
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    batch.begin();
+    batch.draw(this.background, 0, 0);
+    batch.end();
     if (assetManager.update()) {
       if (getScreen() == null) {
         setScreen(new MainMenuScreen(this));
