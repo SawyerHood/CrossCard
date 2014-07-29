@@ -154,7 +154,7 @@ public class CrossCardAI extends CrossCardPlayer{
 		return maxIndex;
 	}
 	
-	public void simulateLoop(CrossCardBoard fantasyBoard, CrossCardDeck fantasyDeck, CrossCard currentCard, int[] moves, boolean playReserve) {
+	public void simulateLoop(CrossCardBoard fantasyBoard, CrossCardDeck fantasyDeck, CrossCard currentCard, int[] moves, boolean playToReserve) {
 		long startTime = System.currentTimeMillis();
 		while (difficulty.toTime() > System.currentTimeMillis() - startTime) {
 			for (int i=0; i < 3; i++) {
@@ -168,7 +168,7 @@ public class CrossCardAI extends CrossCardPlayer{
 				}
 			}
 			
-			if (playReserve) {
+			if (playToReserve) {
 				CrossCardBoard simulateBoard = fantasyBoard.clone();
 				CrossCardDeck simulateDeck = fantasyDeck.clone();
 				moves[9] += simulate(simulateBoard, simulateDeck);
