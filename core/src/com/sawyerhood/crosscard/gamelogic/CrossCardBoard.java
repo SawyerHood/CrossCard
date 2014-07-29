@@ -23,6 +23,11 @@ public class CrossCardBoard {
     initGrid(3, 3);
   }
 
+  /**
+   * Initializes a grid with a specified size.
+   * 
+   * @param grid the X by X size of the game board
+   */
   public CrossCardBoard(CrossCard[][] grid) {
     this.grid = grid;
   }
@@ -30,8 +35,8 @@ public class CrossCardBoard {
   /**
    * Responsible for initializing the grid with the given number of rows and columns.
    * 
-   * @param rowNum
-   * @param colNum
+   * @param rowNum the row to initialize
+   * @param colNum the column to initialize
    */
   private void initGrid(int rowNum, int colNum) {
     grid = new CrossCard[rowNum][colNum];
@@ -47,9 +52,9 @@ public class CrossCardBoard {
   /**
    * Returns true if the given location on the board contains a card, false otherwise.
    * 
-   * @param row
-   * @param col
-   * @return
+   * @param row the row to check
+   * @param col the column to check
+   * @return true if the row and column is occupied, false otherwise
    */
   public boolean isOccupied(int row, int col) {
     if (row >= grid.length || col >= grid[row].length)
@@ -60,7 +65,7 @@ public class CrossCardBoard {
   /**
    * Returns true if the board is full, signaling the game is over.
    * 
-   * @return
+   * @return true if the board is full, false otherwise
    */
   public boolean isBoardFull() {
     for (int i = 0; i < grid.length; i++) {
@@ -75,8 +80,8 @@ public class CrossCardBoard {
   /**
    * Returns the integer value representing the score of a given row.
    * 
-   * @param row
-   * @return
+   * @param row the row to evaluate
+   * @return the row's value
    */
   public int getRowValue(int row) {
     int total = 0;
@@ -96,8 +101,8 @@ public class CrossCardBoard {
   /**
    * Returns an integer value representing the score of a given column.
    * 
-   * @param col
-   * @return
+   * @param col the column to evaluate
+   * @return the column's value
    */
   public int getColValue(int col) {
     int total = 0;
@@ -115,9 +120,9 @@ public class CrossCardBoard {
   }
 
   /**
-   * Returns the max row value
+   * Returns the max row value.
    * 
-   * @return
+   * @return the value of the highest scoring row
    */
   public int getMaxRowValue() {
     ArrayList<Integer> values = new ArrayList<Integer>();
@@ -128,9 +133,9 @@ public class CrossCardBoard {
   }
 
   /**
-   * Returns the max column value
+   * Returns the max column value.
    * 
-   * @return
+   * @return the value of the highest scoring column
    */
   public int getMaxColValue() {
     ArrayList<Integer> values = new ArrayList<Integer>();
@@ -140,6 +145,11 @@ public class CrossCardBoard {
     return Collections.max(values);
   }
 
+  /**
+   * Returns a list of sorted column values.
+   * 
+   * @return the list of values
+   */
   public ArrayList<Integer> getSortedColValues() {
     ArrayList<Integer> values = new ArrayList<Integer>();
     for (int i = 0; i < grid[0].length; i++) {
@@ -149,6 +159,11 @@ public class CrossCardBoard {
     return values;
   }
 
+  /**
+   * Returns a list of sorted row values.
+   * 
+   * @return the list of values
+   */
   public ArrayList<Integer> getSortedRowValues() {
     ArrayList<Integer> values = new ArrayList<Integer>();
     for (int i = 0; i < grid.length; i++) {
@@ -157,8 +172,6 @@ public class CrossCardBoard {
     Collections.sort(values);
     return values;
   }
-
-
 
   /**
    * Used only for the text version of the game.
@@ -198,34 +211,41 @@ public class CrossCardBoard {
       for (int j = 0; j < grid[0].length; j++) {
         toReturn += "------------------------";
       }
-
       toReturn += "\n";
-
     }
-
-
     return toReturn;
   }
 
   /**
    * Tries to place a card at the specified location. Returns true if sucessful and flase otherwise.
    * 
-   * @param row
-   * @param col
-   * @param card
-   * @return
+   * @param row the target row
+   * @param col the target column
+   * @param card the card to place
+   * @return true if card places, false if occupied
    */
   public boolean placeCard(int row, int col, CrossCard card) {
-    if (isOccupied(row, col))
+    if (isOccupied(row, col)) {
       return false;
+    }
     grid[row][col] = card;
     return true;
   }
 
+  /**
+   * Return the card in a given location on the grid.
+   * 
+   * @param row the target row
+   * @param col the target column
+   * @return the card in a given grid location
+   */
   public CrossCard getCard(int row, int col) {
     return grid[row][col];
   }
 
+  /**
+   * Clone the CrossCardBoard.
+   */
   public CrossCardBoard clone() {
     CrossCard[][] cloneGrid = new CrossCard[3][3];
     for (int i = 0; i < 3; i++) {
@@ -241,6 +261,12 @@ public class CrossCardBoard {
     return new CrossCardBoard(cloneGrid);
   }
 
+  /**
+   * Return the winning side.
+   * 
+   * @param deck the deck of cards
+   * @return the horizontal or vertical card type
+   */
   public CardType getWinner(CrossCardDeck deck) {
     if (isBoardFull()) {
       if (grid[1][1].getCardType() == CardType.FACEDOWN)
