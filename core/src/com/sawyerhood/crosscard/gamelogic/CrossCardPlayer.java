@@ -17,6 +17,11 @@ public class CrossCardPlayer {
     this.id = id;
   }
 
+  /**
+   * Reserve a card.
+   * 
+   * @return true if reserved, false otherwise
+   */
   public boolean reserve() {
     if (reserve == null && currentCard != null) {
       reserve = currentCard;
@@ -25,17 +30,33 @@ public class CrossCardPlayer {
     }
     return false;
   }
-  
-  //used for the AI
+
+  /**
+   * Reserve the card provided.
+   * 
+   * @param card the card to reserve
+   * @return true when a card is reserved
+   */
   public boolean reserve(CrossCard card) {
-	  this.reserve = card;
-	  return true;
+    this.reserve = card;
+    return true;
   }
 
+  /**
+   * Return the card type (vertical or horizontal).
+   * 
+   * @return the card type the player is playing as
+   */
   public CardType getSide() {
     return side;
   }
 
+  /**
+   * Give the player a card.
+   * 
+   * @param card the card to give
+   * @return true if card granted, false otherwise
+   */
   public boolean giveCard(CrossCard card) {
     if (currentCard == null) {
       currentCard = card;
@@ -45,6 +66,11 @@ public class CrossCardPlayer {
 
   }
 
+  /**
+   * Pop card of the stack and return it.
+   * 
+   * @return the top card
+   */
   public CrossCard popCard() {
     CrossCard toReturn = currentCard;
     currentCard = reserve;
@@ -52,14 +78,27 @@ public class CrossCardPlayer {
     return toReturn;
   }
 
+  /**
+   * Return the reserved card.
+   * 
+   * @return the reserved card
+   */
   public CrossCard getReserve() {
     return reserve;
   }
 
+  /**
+   * Return the current card.
+   * 
+   * @return the current card
+   */
   public CrossCard getCurrentCard() {
     return currentCard;
   }
 
+  /**
+   * Return the player's id
+   */
   public String toString() {
     return id;
   }
