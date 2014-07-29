@@ -26,12 +26,12 @@ import com.sawyerhood.crosscard.screens.MainMenuScreen;
  */
 public class CrossCardGame extends Game {
   protected SpriteBatch batch;
-  protected Texture img;
   private AssetManager assetManager = null;
   private Music music;
   private Preferences prefs;
   private AIDifficulty diff;
-  private Texture background;
+
+  // private Texture background;
 
 
   @Override
@@ -40,7 +40,7 @@ public class CrossCardGame extends Game {
     // setScreen(new MainMenuScreen(this));
     initManager();
     prefs = Gdx.app.getPreferences("CrossCardPrefs");
-    background = new Texture("table_bg.jpg");
+    // background = new Texture("table_bg.jpg");
   }
 
   @Override
@@ -48,7 +48,7 @@ public class CrossCardGame extends Game {
     Gdx.gl.glClearColor(0, 0, 0, 1);
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     batch.begin();
-    batch.draw(this.background, -300, -300);
+    // batch.draw(this.background, -300, -300);
     batch.end();
     if (assetManager.update()) {
       if (getScreen() == null) {
