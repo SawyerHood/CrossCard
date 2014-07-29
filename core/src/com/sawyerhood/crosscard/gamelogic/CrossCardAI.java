@@ -60,9 +60,9 @@ public class CrossCardAI extends CrossCardPlayer{
 		setCurrentCard(null);
 		currentDeck = fantasyDeck;
 		
-		if (this.getReserve() != null) {
-			this.setCurrentCard(this.getReserve());
-			this.reserve(null);
+		if (getReserve() != null) {
+			setCurrentCard(getReserve());
+			reserve(null);
 		}
 	}
 	

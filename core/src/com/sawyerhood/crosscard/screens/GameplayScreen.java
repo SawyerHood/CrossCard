@@ -46,11 +46,10 @@ public class GameplayScreen extends MenuScreen {
       continueButton.setVisible(true);
       playerLabel.setText(gameManager.getWinner().toString() + " won!");
     }
+    
     else{
      playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
      turnHandle();
-    
-     
     }
     updateCards();
     playerLabel.setFontScale(2f);

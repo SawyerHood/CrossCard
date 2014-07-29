@@ -28,7 +28,7 @@ public class CrossCardDeck {
    * @param cards the collection of cards
    */
   public CrossCardDeck(Collection<CrossCard> cards) {
-    this.cards = (List) cards;
+    this.cards = (List<CrossCard>) cards;
     //cardDrawSound = Gdx.audio.newSound(Gdx.files.internal("card_draw.wav"));
     shuffle();
   }
