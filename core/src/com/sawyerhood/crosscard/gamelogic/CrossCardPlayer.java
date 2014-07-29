@@ -59,7 +59,9 @@ public class CrossCardPlayer {
   public CrossCard getCurrentCard() {
     return currentCard;
   }
-
+  public void setCurrentCard(CrossCard currentCard) {
+	  this.currentCard = currentCard;
+  }
   public String toString() {
     return id;
   }

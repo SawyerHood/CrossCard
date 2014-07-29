@@ -24,98 +24,46 @@ public class CrossCardAI extends CrossCardPlayer{
 		
 		CrossCardBoard fantasyBoard = currentBoard.clone();
 		CrossCardDeck fantasyDeck = currentDeck.clone();
-		CrossCard cardToPlay = null;
-		
-		if (getReserve() != null) {			
-			//simulate playing from the reserve
-			simulateLoop(fantasyBoard, fantasyDeck, getReserve(), moves, true);
 			
-			//find the move with the most wins
-			maxIndex = maxIndex(moves);
-			
-			
-			//if keep in reserve best move
-			if (maxIndex == 9) {
-				//draw a card for turn
-				CrossCard currentCard = fantasyDeck.draw();
-				
-				//rezero moves array, reserve no longer considered
-				Arrays.fill(moves, 0);
-				moves[9] = -1;
-				maxIndex = 0;
-				
-				//simulate playing the drawn card
-				simulateLoop(fantasyBoard, fantasyDeck, currentCard, moves, false);
-
-				//find the best move
-				maxIndex = maxIndex(moves);
-				
-				//play the drawn card
-				cardToPlay = currentCard;
-			}
-			
-			//if playing from reserve best move
-			else {
-				//play the reserve card
-				cardToPlay = getReserve();
-				//remove card from reserve
-				super.reserve(null);
-			}
-			
-		}
-		
-		if (getReserve() == null) {			
+		if (getCurrentCard() == null) {
 			//draw a card for turn
-			CrossCard currentCard = fantasyDeck.draw();
+			setCurrentCard(fantasyDeck.draw());
+		}
+			
+		//simulate playing the drawn card
+		simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, true);
+		
+		//find the best move
+		maxIndex = maxIndex(moves);
+		
+		//if reserving is the best move
+		if (maxIndex == 9) {
+			//reserve the card
+			super.reserve(getCurrentCard());
+			
+			//draw card for turn
+			setCurrentCard(fantasyDeck.draw());
+			
+			//rezero moves array, reserve no longer considered
+			Arrays.fill(moves, 0);
+			moves[9] = -1;
+			maxIndex = 0;
 			
 			//simulate playing the drawn card
-			simulateLoop(fantasyBoard, fantasyDeck, currentCard, moves, true);
-			
+			simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, false);
+
 			//find the best move
 			maxIndex = maxIndex(moves);
-			
-			//if reserving is the best move
-			if (maxIndex == 9) {
-				//reserve the card
-				super.reserve(currentCard);
-				
-				//draw card for turn
-				currentCard = fantasyDeck.draw();
-				
-				//rezero moves array, reserve no longer considered
-				Arrays.fill(moves, 0);
-				moves[9] = -1;
-				maxIndex = 0;
-				
-				//simulate playing the drawn card
-				simulateLoop(fantasyBoard, fantasyDeck, currentCard, moves, false);
-
-				//find the best move
-				maxIndex = maxIndex(moves);
-				
-				//play the card
-				cardToPlay = currentCard;
-			}
-			//if reserving not the best move
-			else {
-				//rezero moves array, reserve no long considered
-				Arrays.fill(moves, 0);
-				moves[9] = -1;
-				maxIndex = 0;
-				
-				//simulate playing the drawn card
-				simulateLoop(fantasyBoard, fantasyDeck, currentCard, moves, false);
-				
-				//find the best move
-				maxIndex = maxIndex(moves);
-				
-				//play the card
-				cardToPlay = currentCard;
-			}
 		}
 		
-		currentBoard.placeCard(maxIndex/3, maxIndex%3, cardToPlay);
+		currentBoard.placeCard(maxIndex/3, maxIndex%3, getCurrentCard());
+		setCurrentCard(null);
 		currentDeck = fantasyDeck;
+		
+		if (this.getReserve() != null) {
+			this.setCurrentCard(this.getReserve());
+			this.reserve(null);
+		}
 	}
 	
 	public int simulate(CrossCardBoard board, CrossCardDeck deck) {
