@@ -38,8 +38,11 @@ public class CrossCardPlayer {
    * @return true when a card is reserved
    */
   public boolean reserve(CrossCard card) {
-    this.reserve = card;
-    return true;
+    if (reserve == null) {
+      this.reserve = card;
+      return true;
+    }
+    return false;
   }
 
   /**
