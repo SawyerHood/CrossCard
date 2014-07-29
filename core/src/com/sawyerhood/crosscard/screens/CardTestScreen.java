@@ -7,7 +7,7 @@ import com.sawyerhood.crosscard.actors.CardActor;
 import com.sawyerhood.crosscard.gamelogic.CrossCard;
 import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
 
-public class CardTestScreen extends MenuScreen {
+public class CardTestScreen extends BaseScreen {
 
   protected Texture cardImage;
   protected BitmapFont font;

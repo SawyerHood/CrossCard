@@ -13,7 +13,7 @@ import com.sawyerhood.crosscard.actors.CardActor;
 import com.sawyerhood.crosscard.gamelogic.CrossCardAI;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 
-public class GameplayScreen extends MenuScreen {
+public class GameplayScreen extends BaseScreen {
 
   protected CrossCardGameManager gameManager;
   private CardActor[][] cardGrid;

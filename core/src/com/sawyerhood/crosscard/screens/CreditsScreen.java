@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 
-public class CreditsScreen extends MenuScreen {
+public class CreditsScreen extends BaseScreen {
 
   public CreditsScreen(final CrossCardGame game) {
     super(game);

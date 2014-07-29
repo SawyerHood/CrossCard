@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.gamelogic.Helpers.AIDifficulty;
 
-public class OptionsScreen extends MenuScreen {
+public class OptionsScreen extends BaseScreen {
 
   private TextButton toggleSoundButton;
 

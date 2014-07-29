@@ -14,7 +14,7 @@ import com.sawyerhood.crosscard.CrossCardGame;
  * @author Matt Hansen
  * 
  */
-public class MainMenuScreen extends MenuScreen {
+public class MainMenuScreen extends BaseScreen {
 
   /**
    * Instantiates a MainMenuScreen by populating a table full of buttons and labels.

@@ -16,7 +16,7 @@ import com.sawyerhood.crosscard.CrossCardGame;
  * @author Matt Hansen
  * 
  */
-public abstract class MenuScreen extends AbstractScreen {
+public abstract class BaseScreen extends AbstractScreen {
   protected Stage menuStage;
   protected Skin uiSkin;
   protected Table table;
@@ -26,7 +26,7 @@ public abstract class MenuScreen extends AbstractScreen {
    * 
    * @param game the game that owns this screen
    */
-  public MenuScreen(CrossCardGame game) {
+  public BaseScreen(CrossCardGame game) {
     super(game);
     OrthographicCamera camera =
         new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
