@@ -56,6 +56,7 @@ public class GameplayScreen extends BaseScreen {
     if (gameManager.isGameOver()) {
       continueButton.setVisible(true);
       playerLabel.setText(gameManager.getWinner().toString() + " won!");
+      playerCards.setVisible(false);
     }
 
     else {
@@ -183,7 +184,8 @@ public class GameplayScreen extends BaseScreen {
   }
 
   protected void turnHandle() {
-    //Sound cardDrawSound = ((CrossCardGame) game).getAssetManger().getAssetFileName("card_draw.wav");
+    // Sound cardDrawSound = ((CrossCardGame)
+    // game).getAssetManger().getAssetFileName("card_draw.wav");
   }
 
   /**
@@ -192,5 +194,5 @@ public class GameplayScreen extends BaseScreen {
   protected void initGameManager() {
     gameManager = new CrossCardGameManager();
   }
-  
+
 }
