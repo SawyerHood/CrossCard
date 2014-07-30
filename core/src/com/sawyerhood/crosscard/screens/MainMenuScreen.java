@@ -42,7 +42,7 @@ public class MainMenuScreen extends BaseScreen {
       }
     };
 
-    float fontScale = 2.0f;
+
     title.setFontScale(5.0f);
 
     // Single player button

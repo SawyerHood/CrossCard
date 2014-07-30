@@ -87,8 +87,13 @@ public class GameplayScreen extends BaseScreen {
     cardGrid = new CardActor[3][3];
     vertScores = new Label[3];
     horiScores = new Label[3];
+
+    reserveButton.getLabel().setFontScale(fontScale);
+
+    continueButton.getLabel().setFontScale(fontScale);
     continueButton.setVisible(false);
     continueButton.addListener(new ChangeListener() {
+
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {

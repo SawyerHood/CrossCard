@@ -40,7 +40,11 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
     nextPlayerDialog = new Dialog("Next player", uiSkin);
 
+    nextPlayerDialog.setScale(2.0f);
+
     nextPlayerDialog.text("Pass the phone to the next player.");
+
+
 
     TextButton nextPlayerButton = new TextButton("OK", uiSkin);
 
@@ -72,10 +76,11 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
   public void showDialog() {
     nextPlayerDialog.show(menuStage);
+    nextPlayerDialog.setX(nextPlayerDialog.getCenterX() - 250);
   }
-  
-  private void gameOver(){
-	  game.setScreen(new GameOverScreen(game, this, "multiplayer"));
+
+  private void gameOver() {
+    game.setScreen(new GameOverScreen(game, this, "multiplayer"));
   }
 
 }

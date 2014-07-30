@@ -29,8 +29,12 @@ public class GameOverScreen extends BaseScreen {
     super(game);
     TextButton newGame = new TextButton("Play again!", uiSkin);
     TextButton mainMenu = new TextButton("Main Menu", uiSkin);
+    newGame.getLabel().setFontScale(fontScale);
+    mainMenu.getLabel().setFontScale(fontScale);
+    Label winnerLabel = new Label(screen.getGameManager().getWinner() + " player wins!", uiSkin);
+    winnerLabel.setFontScale(3.0f);
     this.screen = screen;
-    table.add(new Label(screen.getGameManager().getWinner() + " player wins!", uiSkin)).pad(15);
+    table.add(winnerLabel).pad(15);
     table.row();
     table.add(newGame).pad(15);
     table.row();

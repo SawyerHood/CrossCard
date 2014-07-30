@@ -27,12 +27,17 @@ public class OptionsScreen extends BaseScreen {
     super(game);
     final Music music = ((CrossCardGame) game).getMusic();
     Label title = new Label("Options!", uiSkin);
-    title.setScale((float) 2.0);
+    title.setFontScale((float) 3.0);
     toggleSoundButton =
         new TextButton(music.isPlaying() ? "Toggle Sound: ON" : "Toggle Sound: OFF", uiSkin);
     TextButton difficultyButton =
         new TextButton("Difficulty : " + game.getDifficulty().toString(), uiSkin);
     TextButton saveSettingsButton = new TextButton("Save and Quit", uiSkin);
+
+    toggleSoundButton.getLabel().setFontScale(fontScale);
+    difficultyButton.getLabel().setFontScale(fontScale);
+    saveSettingsButton.getLabel().setFontScale(fontScale);
+
     table.add(title).pad(50);
     table.row();
     table.add(toggleSoundButton).width(300).height(50).pad(12);

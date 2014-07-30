@@ -20,6 +20,7 @@ public abstract class BaseScreen extends AbstractScreen {
   protected Stage menuStage;
   protected Skin uiSkin;
   protected Table table;
+  public static float fontScale = 2.0f;
 
   /**
    * Set up the camera, stage, and interface for a screen.

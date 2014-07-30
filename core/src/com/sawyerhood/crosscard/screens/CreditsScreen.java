@@ -25,6 +25,7 @@ public class CreditsScreen extends BaseScreen {
         new Label("Sawyer Hood\n\nDavid Hill\n\nKyle McCleary\n\nBrock Stoops\n\nMatt Hansen\n\n",
             uiSkin);
     TextButton backButton = new TextButton("Back", uiSkin);
+    backButton.getLabel().setFontScale(fontScale);
     backButton.addCaptureListener(new ChangeListener() {
 
       @Override
@@ -36,7 +37,7 @@ public class CreditsScreen extends BaseScreen {
     });
 
     backButton.getLabel().setFontScale(2.0f);
-    people.setFontScale(2.0f);
+    people.setFontScale(fontScale);
     table.add(people);
     table.row();
     table.add(backButton).pad(20);
