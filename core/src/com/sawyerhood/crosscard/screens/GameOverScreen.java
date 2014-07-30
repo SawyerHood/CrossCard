@@ -22,22 +22,24 @@ public class GameOverScreen extends BaseScreen {
     table.row();
     table.add(mainMenu).pad(15);
 
-    // only increment wins when the player won
-    int numWins = game.getPrefs().getInteger("numWins");
-    int numGames = game.getPrefs().getInteger("numGames");
-    numGames++;
-    if (screen.getGameManager().getWinner().getClass() == CrossCardPlayer.class) {
-      numWins++;
-      game.getPrefs().putInteger("numWins", numWins);
+    // only modify/display statistics on a single player game
+    if (gameType.equals("singleplayer")) {
+      // increment wins for the player
+      int numWins = game.getPrefs().getInteger("numWins");
+      int numGames = game.getPrefs().getInteger("numGames");
+      numGames++;
+      if (screen.getGameManager().getWinner().getClass() == CrossCardPlayer.class) {
+        numWins++;
+        game.getPrefs().putInteger("numWins", numWins);
+      }
+      game.getPrefs().putInteger("numGames", numGames);
+      game.getPrefs().flush();
+      table.row();
+      table.add(
+          new Label("Your Player Statistics\n------------------------------\nWins: " + numWins
+              + "\nGames Played: " + numGames + "\nW/L Ratio: " + (float) numWins / numGames,
+              uiSkin)).pad(15);
     }
-    game.getPrefs().putInteger("numGames", numGames);
-    game.getPrefs().flush();
-    table.row();
-    table.add(new Label("Wins: " + numWins, uiSkin)).pad(15);
-    table.row();
-    table.add(new Label("Games Played: " + numGames, uiSkin)).pad(15);
-    table.row();
-    table.add(new Label("W/L Ratio: " + (float)numWins/numGames, uiSkin)).pad(15);
 
     newGame.addListener(new ChangeListener() {
 
