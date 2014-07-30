@@ -26,9 +26,9 @@ public class CardActor extends Image {
     font.setColor(0, 0, 0, 1);
     super.draw(batch, parentAlpha);
     if (card != null) {
-    if(card.getCardType() != CardType.FACEDOWN){
-      font.draw(batch, Integer.toString(card.getValue()), this.getX() + (this.getImageWidth() - 20)
-          / 2, this.getY() + this.getImageHeight() - 20);
+      if (card.getCardType() != CardType.FACEDOWN && card.getCardType() != CardType.DOT) {
+        font.draw(batch, Integer.toString(card.getValue()), this.getX()
+            + (this.getImageWidth() - 20) / 2, this.getY() + this.getImageHeight() - 20);
       }
       font.draw(batch, card.getCardType().toString(),
           this.getX() + (this.getImageWidth() - 20) / 2, this.getY() + this.getImageHeight() - 70);
