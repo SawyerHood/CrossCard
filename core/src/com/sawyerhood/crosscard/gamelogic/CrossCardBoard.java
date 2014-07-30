@@ -3,6 +3,8 @@ package com.sawyerhood.crosscard.gamelogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
 
 /**
@@ -217,7 +219,7 @@ public class CrossCardBoard {
   }
 
   /**
-   * Tries to place a card at the specified location. Returns true if sucessful and flase otherwise.
+   * Tries to place a card at the specified location. Returns true if successful and false otherwise.
    * 
    * @param row the target row
    * @param col the target column

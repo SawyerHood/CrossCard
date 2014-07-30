@@ -20,7 +20,6 @@ import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
 public class CrossCardDeck {
 
   private List<CrossCard> cards;
-  private Sound cardDrawSound;
 
   /**
    * Creates a new CrossCardDeck and shuffles it.
@@ -29,7 +28,6 @@ public class CrossCardDeck {
    */
   public CrossCardDeck(Collection<CrossCard> cards) {
     this.cards = (List<CrossCard>) cards;
-    //cardDrawSound = Gdx.audio.newSound(Gdx.files.internal("card_draw.wav"));
     shuffle();
   }
 
@@ -49,7 +47,6 @@ public class CrossCardDeck {
     if (cards.size() == 0) {
       return null;
     }
-    //cardDrawSound.play();
     return cards.remove(cards.size() - 1);
   }
 

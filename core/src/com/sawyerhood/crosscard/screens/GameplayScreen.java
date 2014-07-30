@@ -157,7 +157,6 @@ public class GameplayScreen extends BaseScreen {
     }
     currentCard.setCard(gameManager.getCurrentPlayer().getCurrentCard());
     reserveCard.setCard(gameManager.getCurrentPlayer().getReserve());
-
   }
 
   /**
@@ -184,6 +183,7 @@ public class GameplayScreen extends BaseScreen {
   }
 
   protected void turnHandle() {
+    //Sound cardDrawSound = ((CrossCardGame) game).getAssetManger().getAssetFileName("card_draw.wav");
   }
 
   /**

@@ -82,7 +82,7 @@ public class CrossCardGame extends Game {
     assetManager.load("default.fnt", BitmapFont.class);
     assetManager.load("card.png", Texture.class);
     assetManager.load("music.mp3", Music.class);
-    assetManager.load("card_draw.wav", Sound.class);
+    assetManager.load("card_play.wav", Sound.class);
   }
 
   /**
