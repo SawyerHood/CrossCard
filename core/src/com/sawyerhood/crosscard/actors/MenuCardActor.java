@@ -14,7 +14,7 @@ public class MenuCardActor extends CardActor implements Poolable {
     super(texture, font, card);
     this.speed = speed;
     this.setX(distFromSide);
-    this.setY(-299);
+    this.setY(-300);
     // TODO Auto-generated constructor stub
   }
 
@@ -33,9 +33,14 @@ public class MenuCardActor extends CardActor implements Poolable {
     this.setY(getY() + delta * speed);
     if (getY() > 800) {
       setY(800);
-      setX(Gdx.graphics.getWidth() - this.getImageWidth() - 150);
+      setX(Gdx.graphics.getWidth() - this.getImageWidth() - distFromSide);
+      speed = -speed;
+    } else if (getY() < -900) {
+      setY(-300);
+      setX(distFromSide);
       speed = -speed;
     }
+
   }
 
 }
