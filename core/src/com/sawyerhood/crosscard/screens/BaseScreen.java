@@ -33,7 +33,7 @@ public abstract class BaseScreen extends AbstractScreen {
         new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     if (Gdx.app.getType() == Application.ApplicationType.Android)
-      camera.zoom = .6f;
+      camera.zoom = .7f;
     menuStage = new Stage(new ScreenViewport(camera));
     Gdx.input.setInputProcessor(menuStage);
     table = new Table();

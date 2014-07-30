@@ -12,7 +12,7 @@ import com.sawyerhood.crosscard.actors.LocalBoardClickListener;
  * The multiplayer gameplay screen.
  * 
  * @author Sawyer Hood
- *
+ * 
  */
 public class MultiplayerGameplayScreen extends GameplayScreen {
   private Dialog nextPlayerDialog;
@@ -76,7 +76,7 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
   public void showDialog() {
     nextPlayerDialog.show(menuStage);
-    nextPlayerDialog.setX(nextPlayerDialog.getCenterX() - 250);
+    nextPlayerDialog.setX(nextPlayerDialog.getX() - 150);
   }
 
   private void gameOver() {

@@ -29,6 +29,7 @@ public class MainMenuScreen extends BaseScreen {
       .get("card.png", Texture.class);
   private BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt",
       BitmapFont.class);
+  public static int number_of_cards = 20;
 
 
   /**
@@ -137,7 +138,7 @@ public class MainMenuScreen extends BaseScreen {
   public void render(float delta) {
     super.render(delta);
     timeSinceLastSpawn += delta;
-    if (timeSinceLastSpawn >= 1.5f && cardList.size() < 13) {
+    if (timeSinceLastSpawn >= 1.5f && cardList.size() < number_of_cards) {
       MenuCardActor actor = new MenuCardActor(cardImage, font, Helpers.getRandomCard(), 110);
       cardList.add(actor);
       menuStage.addActor(actor);
