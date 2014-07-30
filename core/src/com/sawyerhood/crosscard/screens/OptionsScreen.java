@@ -8,10 +8,21 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.gamelogic.Helpers.AIDifficulty;
 
+/**
+ * The screen for managing game options.
+ * 
+ * @author Sawyer Hood
+ *
+ */
 public class OptionsScreen extends BaseScreen {
 
   private TextButton toggleSoundButton;
 
+  /**
+   * Create a new options screen.
+   * 
+   * @param game the game
+   */
   public OptionsScreen(final CrossCardGame game) {
     super(game);
     final Music music = ((CrossCardGame) game).getMusic();
@@ -67,15 +78,13 @@ public class OptionsScreen extends BaseScreen {
         game.getPrefs().putBoolean("sound", music.isPlaying());
         game.getPrefs().flush();
         game.setScreen(new MainMenuScreen(game));
-
       }
-
     });
-
-
-
   }
 
+  /**
+   * Toggles the background music on or off
+   */
   private void toggleSound() {
     Music music = ((CrossCardGame) game).getMusic();
     if (music.isPlaying()) {
@@ -87,6 +96,11 @@ public class OptionsScreen extends BaseScreen {
     }
   }
 
+  /**
+   * Set the AI's difficulty level.
+   * 
+   * @param difficulty the difficulty level for the AI
+   */
   private void setAIDifficulty(AIDifficulty difficulty) {
     game.setDifficulty(difficulty);
     game.getPrefs().putString("difficulty", difficulty.toString());

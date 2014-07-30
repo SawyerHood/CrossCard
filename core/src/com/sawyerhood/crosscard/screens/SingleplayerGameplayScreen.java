@@ -6,14 +6,27 @@ import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 import com.sawyerhood.crosscard.gamelogic.CrossCardTurnManager;
 import com.sawyerhood.crosscard.gamelogic.Helpers;
 
+/**
+ * The gameplay screen for a single player match.
+ * 
+ * @author Sawyer Hood
+ *
+ */
 public class SingleplayerGameplayScreen extends GameplayScreen {
 
+  /**
+   * Create a new single player gameplay screen.
+   * 
+   * @param game the game
+   */
   public SingleplayerGameplayScreen(CrossCardGame game) {
     super(game);
-    // TODO Auto-generated constructor stub
     gameType = "singleplayer";
   }
 
+  /**
+   * Manage the turn state.
+   */
   @Override
   protected void turnHandle() {
     if (gameManager.getCurrentPlayer() instanceof CrossCardAI) {
@@ -23,6 +36,9 @@ public class SingleplayerGameplayScreen extends GameplayScreen {
     }
   }
 
+  /**
+   * Initialize the game manager.
+   */
   @Override
   protected void initGameManager() {
     gameManager =

@@ -8,20 +8,35 @@ import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.BoardClickListener;
 import com.sawyerhood.crosscard.actors.LocalBoardClickListener;
 
+/**
+ * The multiplayer gameplay screen.
+ * 
+ * @author Sawyer Hood
+ *
+ */
 public class MultiplayerGameplayScreen extends GameplayScreen {
   private Dialog nextPlayerDialog;
 
+  /**
+   * Creates a new multiplayer screen.
+   * 
+   * @param game the game
+   */
   public MultiplayerGameplayScreen(CrossCardGame game) {
     super(game);
     gameType = "multiplayer";
 
   }
 
+  /**
+   * Initializes the game board.
+   * 
+   * @param boardListener the board click listener
+   */
   @Override
   public void initBoard(BoardClickListener boardListener) {
 
     super.initBoard(new LocalBoardClickListener(gameManager, this));
-
 
     nextPlayerDialog = new Dialog("Next player", uiSkin);
 
@@ -41,23 +56,26 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
   }
 
+  /**
+   * Set's the board's visibility to false.
+   */
   public void hideBoard() {
     table.setVisible(false);
   }
 
+  /**
+   * Set's the board's visibility to true.
+   */
   public void showBoard() {
     table.setVisible(true);
   }
 
   public void showDialog() {
     nextPlayerDialog.show(menuStage);
-
   }
   
   private void gameOver(){
 	  game.setScreen(new GameOverScreen(game, this, "multiplayer"));
   }
-
-
 
 }

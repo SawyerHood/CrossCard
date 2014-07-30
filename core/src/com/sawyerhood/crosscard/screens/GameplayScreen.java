@@ -10,9 +10,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.BoardClickListener;
 import com.sawyerhood.crosscard.actors.CardActor;
-import com.sawyerhood.crosscard.gamelogic.CrossCardAI;
 import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
 
+/**
+ * The screen that contains the main gameplay.
+ * 
+ * @author Sawyer Hood
+ *
+ */
 public class GameplayScreen extends BaseScreen {
 
   protected CrossCardGameManager gameManager;
@@ -28,6 +33,11 @@ public class GameplayScreen extends BaseScreen {
   protected String gameType;
   private TextButton continueButton;
 
+  /**
+   * Creates a new gameplay screen.
+   * 
+   * @param game the game
+   */
   public GameplayScreen(CrossCardGame game) {
     super(game);
     initGameManager();
@@ -36,8 +46,9 @@ public class GameplayScreen extends BaseScreen {
 
   }
 
-
-
+  /**
+   * Renders the players turn and the state of the game board.
+   */
   @Override
   public void render(float delta) {
     super.render(delta);
@@ -53,11 +64,13 @@ public class GameplayScreen extends BaseScreen {
     }
     updateCards();
     playerLabel.setFontScale(2f);
-
-
   }
 
-
+  /**
+   * Initialize the game board
+   * 
+   * @param boardListener the board's click listener
+   */
   public void initBoard(BoardClickListener boardListener) {
 
     Texture cardImage = ((CrossCardGame) game).getAssetManger().get("card.png", Texture.class);
@@ -83,16 +96,12 @@ public class GameplayScreen extends BaseScreen {
 
     });
 
-
-
     for (int i = 0; i < 3; i++) {
       vertScores[i] = new Label(null, uiSkin);
       horiScores[i] = new Label(null, uiSkin);
     }
 
-
     gameManager.nextTurn();
-
 
     reserveButton.addListener(new ChangeListener() {
 
@@ -116,7 +125,6 @@ public class GameplayScreen extends BaseScreen {
     cardGameTable.add(vertScores[2]).pad(15);
     cardGameTable.row();
 
-
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
         CardActor card = new CardActor(cardImage, font, null);
@@ -136,6 +144,9 @@ public class GameplayScreen extends BaseScreen {
     table.add(continueButton);
   }
 
+  /**
+   * Update the cards on the board and their scores.
+   */
   private void updateCards() {
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
@@ -149,26 +160,37 @@ public class GameplayScreen extends BaseScreen {
 
   }
 
+  /**
+   * Returns the game manager.
+   * 
+   * @return the game manager
+   */
   public CrossCardGameManager getGameManager() {
-
     return gameManager;
   }
 
+  /**
+   * Instantiate a new CrossCardGameManager
+   */
   public void clear() {
     gameManager = new CrossCardGameManager();
   }
 
+  /**
+   * Transition to the GameOverScreen.
+   */
   private void gameOver() {
     game.setScreen(new GameOverScreen(game, this, gameType));
   }
 
   protected void turnHandle() {
-
   }
 
+  /**
+   * Instantiate a new CrossCardGameManager
+   */
   protected void initGameManager() {
     gameManager = new CrossCardGameManager();
   }
-
-
+  
 }

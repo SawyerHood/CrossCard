@@ -7,10 +7,24 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.gamelogic.CrossCardPlayer;
 
+/**
+ * Screen that is displayed after a match has ended.
+ * 
+ * @author Sawyer Hood
+ * @author Matt Hansen
+ * 
+ */
 public class GameOverScreen extends BaseScreen {
 
   private GameplayScreen screen;
 
+  /**
+   * Instantiates a GameOverScreen.
+   * 
+   * @param game the game
+   * @param screen the game play screen
+   * @param gameType the type of game being played
+   */
   public GameOverScreen(final CrossCardGame game, final GameplayScreen screen, final String gameType) {
     super(game);
     TextButton newGame = new TextButton("Play again!", uiSkin);
