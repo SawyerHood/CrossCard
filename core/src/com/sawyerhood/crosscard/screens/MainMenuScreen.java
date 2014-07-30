@@ -167,7 +167,7 @@ public class MainMenuScreen extends BaseScreen {
     Iterator<MenuCardActor> iter = cardList.iterator();
     while (iter.hasNext()) {
       MenuCardActor actor = iter.next();
-      if (actor.getY() > 800) {
+      if (actor.getY() < -300) {
         cards.free(actor);
         iter.remove();
       }
