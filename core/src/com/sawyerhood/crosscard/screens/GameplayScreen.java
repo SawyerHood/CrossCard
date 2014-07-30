@@ -41,15 +41,15 @@ public class GameplayScreen extends BaseScreen {
   @Override
   public void render(float delta) {
     super.render(delta);
-   
+
     if (gameManager.isGameOver()) {
       continueButton.setVisible(true);
       playerLabel.setText(gameManager.getWinner().toString() + " won!");
     }
-    
-    else{
-     playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
-     turnHandle();
+
+    else {
+      playerLabel.setText(gameManager.getCurrentPlayer().toString() + "'s Turn");
+      turnHandle();
     }
     updateCards();
     playerLabel.setFontScale(2f);
@@ -74,16 +74,14 @@ public class GameplayScreen extends BaseScreen {
     vertScores = new Label[3];
     horiScores = new Label[3];
     continueButton.setVisible(false);
-    continueButton.addListener(new ChangeListener(){
+    continueButton.addListener(new ChangeListener() {
 
-		@Override
-		public void changed(ChangeEvent event, Actor actor) {
-			gameOver();
-		}
-    	
+      @Override
+      public void changed(ChangeEvent event, Actor actor) {
+        gameOver();
+      }
+
     });
-    
-    
 
 
 
@@ -159,17 +157,17 @@ public class GameplayScreen extends BaseScreen {
   public void clear() {
     gameManager = new CrossCardGameManager();
   }
-  
-  private void gameOver(){
-	  game.setScreen(new GameOverScreen(game, this, gameType));
+
+  private void gameOver() {
+    game.setScreen(new GameOverScreen(game, this, gameType));
   }
-  
-  protected void turnHandle(){
-	  
+
+  protected void turnHandle() {
+
   }
-  
-  protected void initGameManager(){
-	  gameManager = new CrossCardGameManager();
+
+  protected void initGameManager() {
+    gameManager = new CrossCardGameManager();
   }
 
 
