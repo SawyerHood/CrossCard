@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 /*
  * import com.google.gson.Gson; import com.google.gson.reflect.TypeToken;
@@ -26,6 +27,9 @@ public class Helpers {
    * @author Sawyer
    * 
    */
+  public static Random r = new Random();
+  public static Helpers.CardType[] types = {Helpers.CardType.HORIZONTAL, Helpers.CardType.CROSS,
+      Helpers.CardType.DOT, Helpers.CardType.VERTICAL};
 
   public enum CardType {
     HORIZONTAL, VERTICAL, CROSS, DOT, FACEDOWN;
@@ -149,6 +153,16 @@ public class Helpers {
     players.add(new CrossCardPlayer(CardType.VERTICAL, "Vertical"));
     players.add(new CrossCardAI(CardType.HORIZONTAL, "Horizontal", d));
     return players;
+  }
+
+  /**
+   * 
+   * @return Returns a random CrossCard
+   */
+  public static CrossCard getRandomCard() {
+    int typeIndex = r.nextInt(types.length);
+    int cardVal = r.nextInt(5) + 1;
+    return new CrossCard(types[typeIndex], cardVal);
   }
 
 }

@@ -1,7 +1,6 @@
 package com.sawyerhood.crosscard.screens;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.sawyerhood.crosscard.CrossCardGame;
 import com.sawyerhood.crosscard.actors.MenuCardActor;
-import com.sawyerhood.crosscard.gamelogic.CrossCard;
 import com.sawyerhood.crosscard.gamelogic.Helpers;
 
 /**
@@ -26,12 +24,12 @@ public class MainMenuScreen extends BaseScreen {
 
 
   private ArrayList<MenuCardActor> cardList;
-  float timeSinceLastSpawn = 0f;
-  Texture cardImage = ((CrossCardGame) game).getAssetManger().get("card.png", Texture.class);
-  BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt", BitmapFont.class);
-  Random r = new Random();
-  Helpers.CardType[] types = {Helpers.CardType.HORIZONTAL, Helpers.CardType.CROSS,
-      Helpers.CardType.DOT, Helpers.CardType.VERTICAL};
+  private float timeSinceLastSpawn = 0f;
+  private Texture cardImage = ((CrossCardGame) game).getAssetManger()
+      .get("card.png", Texture.class);
+  private BitmapFont font = ((CrossCardGame) game).getAssetManger().get("default.fnt",
+      BitmapFont.class);
+
 
   /**
    * Instantiates a MainMenuScreen by populating a table full of buttons and labels.
@@ -132,12 +130,15 @@ public class MainMenuScreen extends BaseScreen {
 
   }
 
+  /**
+   * Specifically overriden to allow for ultra cool card flying functionality.
+   */
   @Override
   public void render(float delta) {
     super.render(delta);
     timeSinceLastSpawn += delta;
     if (timeSinceLastSpawn >= 1.5f && cardList.size() < 13) {
-      MenuCardActor actor = new MenuCardActor(cardImage, font, getRandomCard(), 110);
+      MenuCardActor actor = new MenuCardActor(cardImage, font, Helpers.getRandomCard(), 110);
       cardList.add(actor);
       menuStage.addActor(actor);
       timeSinceLastSpawn = 0.0f;
@@ -145,9 +146,5 @@ public class MainMenuScreen extends BaseScreen {
 
   }
 
-  protected CrossCard getRandomCard() {
-    int typeIndex = r.nextInt(types.length);
-    int cardVal = r.nextInt(5) + 1;
-    return new CrossCard(types[typeIndex], cardVal);
-  }
+
 }

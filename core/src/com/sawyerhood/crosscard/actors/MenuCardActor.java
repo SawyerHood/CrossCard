@@ -3,10 +3,9 @@ package com.sawyerhood.crosscard.actors;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.utils.Pool.Poolable;
 import com.sawyerhood.crosscard.gamelogic.CrossCard;
 
-public class MenuCardActor extends CardActor implements Poolable {
+public class MenuCardActor extends CardActor {
   private float speed;
   public static float distFromSide = 150;
 
@@ -14,16 +13,7 @@ public class MenuCardActor extends CardActor implements Poolable {
     super(texture, font, card);
     this.speed = speed;
     this.setX(distFromSide);
-    this.setY(-300);
-    // TODO Auto-generated constructor stub
-  }
-
-  @Override
-  public void reset() {
-
-    setY(-299);
-    setX(150);
-    speed = -speed;
+    this.setY(-290);
 
   }
 
@@ -35,8 +25,8 @@ public class MenuCardActor extends CardActor implements Poolable {
       setY(800);
       setX(Gdx.graphics.getWidth() - this.getImageWidth() - distFromSide);
       speed = -speed;
-    } else if (getY() < -900) {
-      setY(-300);
+    } else if (getY() < -290) {
+      setY(-260);
       setX(distFromSide);
       speed = -speed;
     }
