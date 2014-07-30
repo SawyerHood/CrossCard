@@ -2,6 +2,7 @@ package com.sawyerhood.crosscard.gamelogic;
 
 
 import java.util.List;
+import java.util.Random;
 
 import com.sawyerhood.crosscard.gamelogic.interfaces.TurnManager;
 
@@ -17,8 +18,9 @@ public class CrossCardTurnManager implements TurnManager {
   private int currentIndex;
 
   public CrossCardTurnManager(List<CrossCardPlayer> players) {
+    Random r = new Random();
     this.players = players;
-    this.currentIndex = 0;
+    this.currentIndex = r.nextInt(players.size());
   }
 
   /**
