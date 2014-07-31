@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCard" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCard.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCard" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="149" y="592"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardBoard" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardBoard.java" binary="false" 
+  <class id="2" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardBoard" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardBoard.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-69" y="195"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -20,8 +20,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardDeck" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardDeck.java" binary="false" 
+  <class id="3" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardDeck" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardDeck.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="697" y="208"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -30,9 +30,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardDeckTemplate" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardDeckTemplate.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardDeckTemplate" 
+    project="CrossCard-core" file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardDeckTemplate.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="706" y="380"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -40,8 +40,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardPlayer" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardPlayer.java" binary="false" 
+  <class id="5" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardPlayer" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardPlayer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="300" y="204"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -50,9 +50,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardTurnManager" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardTurnManager.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardTurnManager" 
+    project="CrossCard-core" file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardTurnManager.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="487" y="594"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -60,8 +60,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.sawyerhood.crosscard.gamelogic.Helpers" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/Helpers.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="com.sawyerhood.crosscardv1.gamelogic.Helpers" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/Helpers.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-274" y="397"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -69,8 +69,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="8" language="java" name="com.sawyerhood.crosscard.gamelogic.Helpers.CardType" 
-    project="CrossCard-core" file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/Helpers.java" binary="false" 
+  <enumeration id="8" language="java" name="com.sawyerhood.crosscardv1.gamelogic.Helpers.CardType" 
+    project="CrossCard-core" file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/Helpers.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-218" y="633"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
@@ -79,8 +79,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="9" language="java" name="com.sawyerhood.crosscard.screens.GameplayScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/GameplayScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="com.sawyerhood.crosscardv1.screens.GameplayScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/GameplayScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="-99" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -88,9 +89,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.sawyerhood.crosscard.gamelogic.CrossCardGameManager" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/gamelogic/CrossCardGameManager.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="com.sawyerhood.crosscardv1.gamelogic.CrossCardGameManager" 
+    project="CrossCard-core" file="/CrossCard-core/src/com/sawyerhood/crosscardv1/gamelogic/CrossCardGameManager.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="373" y="-71"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -98,85 +99,85 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <nesting id="11">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="8"/>  
-  </nesting>  
-  <association id="12">    
-    <bendpoint x="453" y="398"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="13" name="players"/>      
-      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="15">    
+  <association id="11">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="16" name="grid"/>      
-      <multiplicity id="17" minimum="0" maximum="2147483647"/>    
+      <attribute id="12" name="grid"/>      
+      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="19" name="reserve"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="22" name="cards"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
+  <association id="14">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="25" name="card"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+      <attribute id="15" name="card"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="27">    
-    <bendpoint x="-132" y="621"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="28" name="cardType"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
+  <association id="17">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="18" name="cards"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="21" name="reserve"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <bendpoint x="-30" y="455"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="24" name="side"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="30">    
+  <association id="26">    
+    <bendpoint x="-132" y="621"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="27" name="cardType"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="31" name="board"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+      <attribute id="30" name="board"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="33">    
+  <association id="32">    
+    <bendpoint x="453" y="398"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="33" name="players"/>      
+      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="34" name="deck"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+      <attribute id="36" name="deck"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="36">    
-    <bendpoint x="-30" y="455"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="37" name="side"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <nesting id="38">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
   <association id="39">    
     <bendpoint x="329" y="386"/>    
     <end type="SOURCE" refId="5" navigable="false">      

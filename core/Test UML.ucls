@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.sawyerhood.crosscard.screens.AbstractScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/AbstractScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="com.sawyerhood.crosscardv1.screens.AbstractScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/AbstractScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="396" y="122"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -10,8 +11,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.sawyerhood.crosscard.screens.CreditsScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/CreditsScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="2" language="java" name="com.sawyerhood.crosscardv1.screens.CreditsScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/CreditsScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="146" y="477"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -19,8 +21,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.sawyerhood.crosscard.screens.GameplayScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/GameplayScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="com.sawyerhood.crosscardv1.screens.GameplayScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/GameplayScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="374" y="441"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -28,8 +31,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.sawyerhood.crosscard.screens.MainMenuScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/MainMenuScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="com.sawyerhood.crosscardv1.screens.MainMenuScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/MainMenuScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="595" y="454"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -37,8 +41,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.sawyerhood.crosscard.screens.OptionsScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/OptionsScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="com.sawyerhood.crosscardv1.screens.OptionsScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/OptionsScreen.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="732" y="225"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -46,8 +51,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.sawyerhood.crosscard.screens.SplashScreen" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/screens/SplashScreen.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="com.sawyerhood.crosscardv1.screens.SplashScreen" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/screens/SplashScreen.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="115" y="236"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -55,8 +60,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.sawyerhood.crosscard.CrossCardGame" project="CrossCard-core" 
-    file="/CrossCard-core/src/com/sawyerhood/crosscard/CrossCardGame.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="com.sawyerhood.crosscardv1.CrossCardGame" project="CrossCard-core" 
+    file="/CrossCard-core/src/com/sawyerhood/crosscardv1/CrossCardGame.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="394" y="-39"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -65,23 +70,7 @@
     </display>  
   </class>  
   <generalization id="8">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="9">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="10">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="11">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="12">    
-    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
