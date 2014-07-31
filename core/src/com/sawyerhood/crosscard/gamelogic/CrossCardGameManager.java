@@ -22,7 +22,7 @@ public class CrossCardGameManager {
 
     this(new CrossCardTurnManager(Helpers.generateStandardPlayers()), new CrossCardDeck(
         Helpers.generateStandardDeck()), new CrossCardBoard());
-    nextTurn();
+
   }
 
   /**
@@ -36,6 +36,7 @@ public class CrossCardGameManager {
     this.turnManager = turnManager;
     this.deck = deck;
     this.board = board;
+    nextTurn();
   }
 
   /**

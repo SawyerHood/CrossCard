@@ -63,11 +63,7 @@ public class GameOverScreen extends BaseScreen {
 
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-        if (gameType.equals("multiplayer")) {
-          game.setScreen(new MultiplayerGameplayScreen(game));
-        } else {
-          game.setScreen(new SingleplayerGameplayScreen(game));
-        }
+        game.setScreen(new CoinFlipScreen(game, gameType));
 
 
       }
