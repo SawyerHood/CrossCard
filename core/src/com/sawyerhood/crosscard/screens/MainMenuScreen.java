@@ -68,7 +68,7 @@ public class MainMenuScreen extends BaseScreen {
     singlePlayerButton.addListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-        game.setScreen(new SingleplayerGameplayScreen(game));
+        game.setScreen(new CoinFlipScreen(game, "singleplayer"));
       }
     });
 
@@ -78,7 +78,7 @@ public class MainMenuScreen extends BaseScreen {
     multiPlayerButton.addListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent event, Actor actor) {
-        game.setScreen(new MultiplayerGameplayScreen(game));
+        game.setScreen(new CoinFlipScreen(game, "multiplayer"));
       }
     });
 

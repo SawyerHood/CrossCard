@@ -42,7 +42,7 @@ public class MultiplayerGameplayScreen extends GameplayScreen {
 
     nextPlayerDialog.setScale(2.0f);
 
-    nextPlayerDialog.text("Pass the phone to the next player.");
+    nextPlayerDialog.text("Pass the device to the next player.");
 
 
 

@@ -22,6 +22,7 @@ public class CrossCardGameManager {
 
     this(new CrossCardTurnManager(Helpers.generateStandardPlayers()), new CrossCardDeck(
         Helpers.generateStandardDeck()), new CrossCardBoard());
+    nextTurn();
   }
 
   /**

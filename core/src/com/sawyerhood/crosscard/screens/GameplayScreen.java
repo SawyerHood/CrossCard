@@ -16,7 +16,7 @@ import com.sawyerhood.crosscard.gamelogic.CrossCardGameManager;
  * The screen that contains the main gameplay.
  * 
  * @author Sawyer Hood
- *
+ * 
  */
 public class GameplayScreen extends BaseScreen {
 
@@ -107,7 +107,7 @@ public class GameplayScreen extends BaseScreen {
       horiScores[i] = new Label(null, uiSkin);
     }
 
-    gameManager.nextTurn();
+
 
     reserveButton.addListener(new ChangeListener() {
 
@@ -199,5 +199,7 @@ public class GameplayScreen extends BaseScreen {
   protected void initGameManager() {
     gameManager = new CrossCardGameManager();
   }
+
+
 
 }

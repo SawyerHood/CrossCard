@@ -12,7 +12,7 @@ import com.sawyerhood.crosscard.gamelogic.Helpers.AIDifficulty;
  * The screen for managing game options.
  * 
  * @author Sawyer Hood
- *
+ * 
  */
 public class OptionsScreen extends BaseScreen {
 
@@ -25,6 +25,7 @@ public class OptionsScreen extends BaseScreen {
    */
   public OptionsScreen(final CrossCardGame game) {
     super(game);
+
     final Music music = ((CrossCardGame) game).getMusic();
     Label title = new Label("Options!", uiSkin);
     title.setFontScale((float) 3.0);
