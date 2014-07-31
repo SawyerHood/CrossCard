@@ -18,6 +18,7 @@ public class CardActor extends Image {
     super(texture);
     this.font = font;
     this.card = card;
+    font.setScale(2f);
 
   }
 

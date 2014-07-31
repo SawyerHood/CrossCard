@@ -42,7 +42,7 @@ public class Helpers {
       else if (this == CROSS)
         return "+";
       else if (this == FACEDOWN)
-        return "CC";
+        return "C";
       else
         return "*";
 
@@ -54,7 +54,7 @@ public class Helpers {
    * during simulations.
    * 
    * @author David
-   *
+   * 
    */
   public enum AIDifficulty {
     EASY, MEDIUM, HARD;
@@ -76,7 +76,8 @@ public class Helpers {
         return (long) 200;
       else if (this == HARD)
         return (long) 1000;
-      else return (long) 0;
+      else
+        return (long) 0;
     }
   }
 
