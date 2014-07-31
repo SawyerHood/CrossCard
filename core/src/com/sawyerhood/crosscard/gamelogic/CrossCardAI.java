@@ -1,6 +1,7 @@
 package com.sawyerhood.crosscard.gamelogic;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import com.sawyerhood.crosscard.gamelogic.Helpers.AIDifficulty;
 import com.sawyerhood.crosscard.gamelogic.Helpers.CardType;
@@ -20,6 +21,10 @@ public class CrossCardAI extends CrossCardPlayer {
   public CrossCardAI(CardType side, String id, AIDifficulty difficulty) {
     super(side, id);
     this.difficulty = difficulty;
+  }
+  
+  public static void main(String[] args) {
+	  aiTest();
   }
 
   // This method has two parts, one if the reserve is full at the start of the
@@ -45,36 +50,112 @@ public class CrossCardAI extends CrossCardPlayer {
       // draw a card for turn
       setCurrentCard(fantasyDeck.draw());
     }
-
-    // simulate playing the drawn card
-    simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, true);
-
-    // find the best move
-    maxIndex = maxIndex(moves);
-
-    // if reserving is the best move
-    if (maxIndex == 9) {
-      // reserve the card
-      super.reserve(getCurrentCard());
-
-      // draw card for turn
-      setCurrentCard(fantasyDeck.draw());
-
-      // rezero moves array, reserve no longer considered
-      Arrays.fill(moves, 0);
-      moves[9] = -1;
-      maxIndex = 0;
-
-      // simulate playing the drawn card
-      simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, false);
-
-      // find the best move
-      maxIndex = maxIndex(moves);
+    if (difficulty == AIDifficulty.EASY) {
+    	boolean found = false;
+    	Random rand = new Random();
+    	int x,y = 0;
+    	if (fantasyBoard.isBoardFull()) {
+    		return;
+    	}
+    	while (!found) {
+    		x = rand.nextInt(3);
+    		y = rand.nextInt(3);
+    		if (!fantasyBoard.isOccupied(x,y)) {
+    			currentBoard.placeCard(x,y,getCurrentCard());
+    			setCurrentCard(null);
+    			currentDeck = fantasyDeck;
+    			break;
+    		}
+    	}
     }
+    
+    if (difficulty == AIDifficulty.MEDIUM){
+    	if (Math.random() >= .5) {
+    		int[][] positions = new int[3][3];
+        	int numPositions = 0;
+        	boolean full = false;
+        	Random rand = new Random();
+        	int x,y = 0;
+        	if (fantasyBoard.isBoardFull()) {
+        		full = true;
+        	}
+        	while (!full) {
+        		x = rand.nextInt(3);
+        		y = rand.nextInt(3);
+        		if (!fantasyBoard.isOccupied(x,y)) {
+        			currentBoard.placeCard(x,y,getCurrentCard());
+        			setCurrentCard(null);
+        			currentDeck = fantasyDeck;
+        			break;
+        		}
+        	}
+    	}
+    	
+    	else {
+    		// simulate playing the drawn card
+    	    simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, true);
+    	
+    	    // find the best move
+    	    maxIndex = maxIndex(moves);
+    	
+    	    // if reserving is the best move
+    	    if (maxIndex == 9) {
+    	      // reserve the card
+    	      super.reserve(getCurrentCard());
+    	
+    	      // draw card for turn
+    	      setCurrentCard(fantasyDeck.draw());
+    	
+    	      // rezero moves array, reserve no longer considered
+    	      Arrays.fill(moves, 0);
+    	      moves[9] = -1;
+    	      maxIndex = 0;
+    	
+    	      // simulate playing the drawn card
+    	      simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, false);
+    	
+    	      // find the best move
+    	      maxIndex = maxIndex(moves);
+    	    }
+    	
+    	    currentBoard.placeCard(maxIndex / 3, maxIndex % 3, getCurrentCard());
+    	    setCurrentCard(null);
+    	    currentDeck = fantasyDeck;
+    	}
+    }
+    
+    if (difficulty == AIDifficulty.HARD) { 
 
-    currentBoard.placeCard(maxIndex / 3, maxIndex % 3, getCurrentCard());
-    setCurrentCard(null);
-    currentDeck = fantasyDeck;
+	    // simulate playing the drawn card
+	    simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, true);
+	
+	    // find the best move
+	    maxIndex = maxIndex(moves);
+	
+	    // if reserving is the best move
+	    if (maxIndex == 9) {
+	      // reserve the card
+	      super.reserve(getCurrentCard());
+	
+	      // draw card for turn
+	      setCurrentCard(fantasyDeck.draw());
+	
+	      // rezero moves array, reserve no longer considered
+	      Arrays.fill(moves, 0);
+	      moves[9] = -1;
+	      maxIndex = 0;
+	
+	      // simulate playing the drawn card
+	      simulateLoop(fantasyBoard, fantasyDeck, getCurrentCard(), moves, false);
+	
+	      // find the best move
+	      maxIndex = maxIndex(moves);
+	    }
+	
+	    currentBoard.placeCard(maxIndex / 3, maxIndex % 3, getCurrentCard());
+	    setCurrentCard(null);
+	    currentDeck = fantasyDeck;
+    }
 
     if (getReserve() != null) {
       setCurrentCard(getReserve());
@@ -169,18 +250,66 @@ public class CrossCardAI extends CrossCardPlayer {
    * Runs a simulation of two AI's playing against each other
    */
   public static void aiTest() {
-    CrossCardBoard board = new CrossCardBoard();
-    CrossCardDeck deck = new CrossCardDeck(Helpers.generateStandardDeck());
-    CrossCardAI ai1 = new CrossCardAI(CardType.VERTICAL, "player1", AIDifficulty.HARD);
-    CrossCardAI ai2 = new CrossCardAI(CardType.HORIZONTAL, "player2", AIDifficulty.EASY);
-    while (!board.isBoardFull()) {
-      System.out.println("Vertical");
-      ai1.turn(board, deck);
-      System.out.println(board);
-      System.out.println("Horizontal");
-      ai2.turn(board, deck);
-      System.out.println(board);
+    CrossCardBoard board;
+    CrossCardDeck deck;
+    CrossCardAI[] ai = new CrossCardAI[6];
+    CardType winner;
+    int[][] wins = new int[3][3];
+    ai[0] = new CrossCardAI(CardType.VERTICAL, "veasy", AIDifficulty.EASY);
+    ai[1] = new CrossCardAI(CardType.HORIZONTAL, "heasy", AIDifficulty.EASY);
+    ai[2] = new CrossCardAI(CardType.VERTICAL, "vmedium", AIDifficulty.MEDIUM);
+    ai[3] = new CrossCardAI(CardType.HORIZONTAL, "hmedium", AIDifficulty.MEDIUM);
+    ai[4] = new CrossCardAI(CardType.VERTICAL, "vhard", AIDifficulty.HARD);
+    ai[5] = new CrossCardAI(CardType.HORIZONTAL, "hhard", AIDifficulty.HARD);
+    
+	for (int i=0; i < 99; i++) {
+		board = new CrossCardBoard();
+	    deck = new CrossCardDeck(Helpers.generateStandardDeck());
+	    while (!board.isBoardFull()) {
+	    	ai[0].turn(board, deck);
+	    	ai[3].turn(board, deck);
+	    }
+	    winner = board.getWinner(deck);
+	    if (winner == CardType.VERTICAL) {
+	    	wins[0][1]++;
+	    }
+	    if (winner == CardType.HORIZONTAL) {
+	    	wins[1][0]++;
+	    }
+	    
+		board = new CrossCardBoard();
+	    deck = new CrossCardDeck(Helpers.generateStandardDeck());
+	    while (!board.isBoardFull()) {
+	    	ai[0].turn(board, deck);
+	    	ai[5].turn(board, deck);
+	    }
+	    winner = board.getWinner(deck);
+	    if (winner == CardType.VERTICAL) {
+	    	wins[0][2]++;
+	    }
+	    if (winner == CardType.HORIZONTAL) {
+	    	wins[2][0]++;
+	    }
+	    
+		board = new CrossCardBoard();
+	    deck = new CrossCardDeck(Helpers.generateStandardDeck());
+	    while (!board.isBoardFull()) {
+	    	ai[2].turn(board, deck);
+	    	ai[5].turn(board, deck);
+	    }
+	    winner = board.getWinner(deck);
+	    if (winner == CardType.VERTICAL) {
+	    	wins[1][2]++;
+	    }
+	    if (winner == CardType.HORIZONTAL) {
+	    	wins[2][1]++;
+	    }
+	}
+    for (int i=0; i < 3; i++) {
+    	for (int j=0; j < 3; j++) {
+    		System.out.print(" " + wins[i][j] + " ");
+    	}
+    	System.out.print("\n");
     }
-    System.out.println(board.getWinner(deck));
   }
 }
